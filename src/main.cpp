@@ -26,29 +26,29 @@
 #include "GMainWindow.h"
 #include "Gi18n.h"
 
-int main(int argc, char **argv)
+int main (int argc, char **argv)
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
-	
-	qDebug() << "Iniciando GEARC" << endl;
-	
-	
-        QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
-	
-	qDebug() << "Creada ventana principal. " << principal;
-	
-	principal->show ();
-	
-	int run = gearc.exec ();
-	
-	qDebug() << endl << "Cerrando GEARC";
-        delete principal;
-	
+#ifndef WIN32
+    // Localización
+    setlocale (LC_ALL, "");
+    bindtextdomain ("gearc", "locale");
+    textdomain ("gearc");
+#endif
+    
+    qDebug() << "Iniciando GEARC" << endl;
+    
+    
+    QApplication gearc (argc, argv);
+    GEARC_MainWindow *principal = new GEARC_MainWindow ();
+    
+    qDebug() << "Creada ventana principal. " << principal;
+    
+    principal->show ();
+    
+    int run = gearc.exec ();
+    
+    qDebug() << endl << "Cerrando GEARC";
+    delete principal;
+    
     return run;
 }

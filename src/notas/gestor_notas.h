@@ -32,25 +32,25 @@
 
 class GestorNota : public QWidget, private Ui::frm_GestorNotas
 {
-	Q_OBJECT
-		
-	public:
-		GestorNota (QWidget *parent = 0);
-		
-	public slots:
-		void Agregar_Nota ();
-		float CalcularPromedio ();
-		void Promediar ();
-		void Calcular_Notas ();
-		void ActualizarNota (const QString& texto, GNota *nota);
-		void Eliminar_Nota (GNota *nota);
-		
-	private:
-		QList <GNota*> notas;
-		
-	protected:
-		//void mouseMoveEvent (QMouseEvent *event);
-		
+    Q_OBJECT
+    
+public:
+    GestorNota (QWidget *parent = 0);
+    
+public slots:
+    void Agregar_Nota ();
+    float CalcularPromedio ();
+    void Promediar ();
+    void Calcular_Notas ();
+    void ActualizarNota (const QString& texto, GNota *nota);
+    void Eliminar_Nota (GNota *nota);
+    
+private:
+    QList <GNota*> notas;
+    
+protected:
+    //void mouseMoveEvent (QMouseEvent *event);
+    
 };
 
 #endif // GESTOR_NOTA_H

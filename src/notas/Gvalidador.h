@@ -28,10 +28,10 @@
 
 class GValidador : public QDoubleValidator
 {
-	public:
-		GValidador (double bottom, double top, int decimals, QObject* parent = 0);
-	    
-	    QValidator::State validate (QString &input, int &pos) const;
+public:
+    GValidador (double bottom, double top, int decimals, QObject* parent = 0);
+    
+    QValidator::State validate (QString &input, int &pos) const;
 };
 
 #endif // GVALIDADOR_H

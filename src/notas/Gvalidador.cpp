@@ -23,22 +23,22 @@
 #include "Gvalidador.h"
 
 
-GValidador::GValidador (double bottom, double top, int decimals, QObject* parent) 
-: QDoubleValidator (bottom, top, decimals, parent)
+GValidador::GValidador (double bottom, double top, int decimals, QObject* parent)
+        : QDoubleValidator (bottom, top, decimals, parent)
 {
-	
+
 }
 
 
 QValidator::State GValidador::validate (QString& input, int& pos) const
 {
-	if (input.isEmpty() || input == "." || input == ",")
-		return Intermediate;
-	
-	if (QDoubleValidator::validate (input, pos) != Acceptable)
-	{
-		return Invalid;
-	}
-	
+    if (input.isEmpty() || input == "." || input == ",")
+        return Intermediate;
+        
+    if (QDoubleValidator::validate (input, pos) != Acceptable)
+    {
+        return Invalid;
+    }
+    
     return Acceptable;
 }

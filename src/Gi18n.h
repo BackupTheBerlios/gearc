@@ -26,7 +26,7 @@
 #include <QString>
 
 /**
-	@TODO GetText no funciona correctamente en Windows.
+    @TODO GetText no funciona correctamente en Windows.
 */
 
 // Inclusiones de gettext

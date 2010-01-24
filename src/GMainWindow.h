@@ -33,18 +33,18 @@
 
 class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
 {
-	Q_OBJECT
-	
-	public:
-		GEARC_MainWindow (QWidget *parent = 0);
-		~GEARC_MainWindow ();
-		
-	private:
-		QList <QLineEdit*> notas;
-		GestorNota *g_notas;
-		
-	public slots:
-        void acercaDe();
+    Q_OBJECT
+    
+public:
+    GEARC_MainWindow (QWidget *parent = 0);
+    ~GEARC_MainWindow ();
+    
+private:
+    QList <QLineEdit*> notas;
+    GestorNota *g_notas;
+    
+public slots:
+    void acercaDe();
 };
 
 #endif // GEARC_H
