@@ -1,0 +1,13 @@
+*.log
+*.a
+*.so
+*.out
+~*
+*~
+*.tmp
+*.bak
+*.directory
+*.moc
+*.uic
+build/*
+kbuild/*
