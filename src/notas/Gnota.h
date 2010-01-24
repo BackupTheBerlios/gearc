@@ -1,4 +1,4 @@
-/// @file nota.h Declaración de la clase GNota.
+/// \file Gnota.h Declaración de la clase GNota.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -23,8 +23,9 @@
 #ifndef CALIFICACION_H
 #define CALIFICACION_H
 
-#include <QLineEdit>
-#include <QPushButton>
+#include <QtGui/QLineEdit>
+#include <QtGui/QPushButton>
+
 
 class GNota : public QLineEdit
 {
@@ -43,8 +44,8 @@ private slots:
     
     
 signals:
-    void Eliminar (GNota *objeto);
-    void Modificada (const QString &texto, GNota *objeto);
+    void eliminar (GNota *objeto);
+    void modificada (const QString &texto, GNota *objeto);
     
     
 private:

@@ -1,4 +1,4 @@
-/// @file Gvalidador.h Declaración de la clase GValidador para las Notas.
+/// \file Gvalidador.h Declaración de la clase GValidador para las Notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -24,7 +24,7 @@
 #define GVALIDADOR_H
 
 
-#include <QValidator>
+#include <QtGui/QValidator>
 
 class GValidador : public QDoubleValidator
 {

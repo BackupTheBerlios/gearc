@@ -1,4 +1,4 @@
-/// \file main.cpp Archivo de partida para GEARC.
+/// \file GListaRamos.h Declaración de la clase GListaRamos.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -19,52 +19,27 @@
 *      <http://www.gnu.org/licenses/>.                                        *
 *******************************************************************************/
 
-#include "Gi18n.h"
 
-#include "GEARC_MainWindow.h"
+#ifndef GLISTARAMOS_H
+#define GLISTARAMOS_H
 
-#include <QtGui/QApplication>
-#include <QtCore/QDebug>
-#include <QtCore/QTextCodec>
+#include "GRamo.h"
 
-/**
- * Función de partida. Crea un objeto \a QApplication, establece la codificación,
- * crea un objeto GEARC_MainWindow con la ventana principal y entra en la sentencia
- * <tt> gearc.exec () </tt> que inicia el bucle interno de \a QApplication.
- *
- * \return el valor entregado por <tt> gearc.exec () </tt>.
-*/
+#include <QtCore/QList>
 
-int main (int argc, char **argv)
+typedef QList<GRamo*> ListaGRamo;
+
+
+class GListaRamos
 {
-    qDebug() << "Iniciando GEARC" << endl;
+public:
+    GListaRamos ();
+    ~GListaRamos ();
     
-    if (!asignarIdioma () )
-    {
-        qDebug() << "No se inició GetText.";
-    }
+    void agregarRamo (QString nombre, QString nombreProfesor);
     
-    QApplication gearc (argc, argv);
-    
-    
-    QTextCodec::setCodecForCStrings (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForLocale (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForTr (QTextCodec::codecForName ("UTF-8") );
-    qDebug() << "Seleccionando UTF-8 como codificación por defecto.";
-    qDebug() << endl;
-    
-    //GEARC_MainWindow *principal = new GEARC_MainWindow ();
-    GEARC_MainWindow principal;
-    
-    qDebug() << "Creada ventana principal. " << &principal;
-    
-    principal.show ();
-    
-    int run = gearc.exec ();
-    
-    qDebug() << endl << "Cerrando GEARC";
-    
-    //delete principal;
-    
-    return run;
-}
+private:
+    ListaGRamo listaRamos;
+};
+
+#endif // GLISTARAMOS_H

@@ -1,4 +1,4 @@
-/// \file main.cpp Archivo de partida para GEARC.
+/// \file GNotasWindow.h Declaración de la clase GestorNota para manejar notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -19,52 +19,47 @@
 *      <http://www.gnu.org/licenses/>.                                        *
 *******************************************************************************/
 
-#include "Gi18n.h"
 
-#include "GEARC_MainWindow.h"
+#ifndef GESTOR_NOTA_H
+#define GESTOR_NOTA_H
 
-#include <QtGui/QApplication>
-#include <QtCore/QDebug>
-#include <QtCore/QTextCodec>
+#include "../Gi18n.h"
 
-/**
- * Función de partida. Crea un objeto \a QApplication, establece la codificación,
- * crea un objeto GEARC_MainWindow con la ventana principal y entra en la sentencia
- * <tt> gearc.exec () </tt> que inicia el bucle interno de \a QApplication.
- *
- * \return el valor entregado por <tt> gearc.exec () </tt>.
-*/
+#include "ui_GNotasWindow.h"
+#include "Gnota.h"
 
-int main (int argc, char **argv)
+#include <QtGui/QWidget>
+#include <QtCore/QList>
+
+
+class GestorNota : public QWidget, private Ui::wdgtNotas
 {
-    qDebug() << "Iniciando GEARC" << endl;
+    Q_OBJECT
     
-    if (!asignarIdioma () )
-    {
-        qDebug() << "No se inició GetText.";
-    }
+public:
+    GestorNota (QWidget *parent = 0);
+    ~GestorNota ();
     
-    QApplication gearc (argc, argv);
+public slots:
+    void agregarNota ();
+    float calcularPromedio ();
+    void promediar ();
+    /**
+     * Autocalcula todas las notas marcadas como automáticas para lograr el
+     * promedio definido.
+     * \bug Falla cuando se presiona el botón <b> Autocalcular Notas</b> y
+     * no hay notas. Desactivar el botón en esos casos es una solución.
+     */
+    void calcularNotas ();
+    void actualizarNota (const QString& texto, GNota *nota);
+    void eliminarNota (GNota *nota);
     
+private:
+    QList <GNota*> notas;
     
-    QTextCodec::setCodecForCStrings (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForLocale (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForTr (QTextCodec::codecForName ("UTF-8") );
-    qDebug() << "Seleccionando UTF-8 como codificación por defecto.";
-    qDebug() << endl;
+protected:
+    //void mouseMoveEvent (QMouseEvent *event);
     
-    //GEARC_MainWindow *principal = new GEARC_MainWindow ();
-    GEARC_MainWindow principal;
-    
-    qDebug() << "Creada ventana principal. " << &principal;
-    
-    principal.show ();
-    
-    int run = gearc.exec ();
-    
-    qDebug() << endl << "Cerrando GEARC";
-    
-    //delete principal;
-    
-    return run;
-}
+};
+
+#endif // GESTOR_NOTA_H

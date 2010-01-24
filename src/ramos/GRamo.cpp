@@ -1,4 +1,4 @@
-/// @file gestor_notas.h Declaración de la clase GestorNota para manejar notas.
+/// \file GRamo.cpp Definición de la clase GRamo que representa una asignatura.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -19,38 +19,16 @@
 *      <http://www.gnu.org/licenses/>.                                        *
 *******************************************************************************/
 
+#include "GRamo.h"
 
-#ifndef GESTOR_NOTA_H
-#define GESTOR_NOTA_H
 
-#include "Gnota.h"
-
-#include "ui_gestor_notas.h"
-
-#include <QList>
-#include <QWidget>
-
-class GestorNota : public QWidget, private Ui::frm_GestorNotas
+GRamo::GRamo()
 {
-    Q_OBJECT
-    
-public:
-    GestorNota (QWidget *parent = 0);
-    
-public slots:
-    void Agregar_Nota ();
-    float CalcularPromedio ();
-    void Promediar ();
-    void Calcular_Notas ();
-    void ActualizarNota (const QString& texto, GNota *nota);
-    void Eliminar_Nota (GNota *nota);
-    
-private:
-    QList <GNota*> notas;
-    
-protected:
-    //void mouseMoveEvent (QMouseEvent *event);
-    
-};
 
-#endif // GESTOR_NOTA_H
+}
+
+/** Destructor de GRamo. */
+GRamo::~GRamo()
+{
+
+}

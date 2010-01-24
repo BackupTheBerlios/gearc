@@ -1,4 +1,4 @@
-/// @file nota.cpp Definición de la clase GNota.
+/// \file Gnota.cpp Definición de la clase GNota.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -22,7 +22,9 @@
 
 #include "Gnota.h"
 
-#include <QDebug>
+#include <QtGui/QPushButton>
+#include <QtCore/QDebug>
+
 
 GNota::GNota (QWidget* parent) : QLineEdit (parent)
 {
@@ -93,7 +95,7 @@ void GNota::on_btnEliminar_clicked ()
 {
     // Cuando se presiona el botón 'btnEliminar' se activa esta señal
     // la cual envía la dirección de memoria de la nota a eliminar.
-    emit Eliminar (this);
+    emit eliminar (this);
 }
 
 
@@ -102,7 +104,7 @@ void GNota::on_GNota_textChanged (const QString &texto)
 {
     // Cuando el texto de la nota es modificado se activa esta señal
     // la cual envía el nuevo texto y la dirección de memoria de la nota.
-    emit Modificada (texto, this);
+    emit modificada (texto, this);
 }
 
 

@@ -12,3 +12,4 @@
 build/*
 kbuild/*
 .kdev4/*
+gearc-apidocs/*

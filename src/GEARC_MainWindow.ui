@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Daniel L. Contreras Pino</author>
+ <class>GEARC_MainWindow</class>
+ <widget class="QMainWindow" name="GEARC_MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>799</width>
+    <height>631</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string notr="true">GEARC</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="recursos/recursos.qrc">
+    <normaloff>:/gearc.png</normaloff>:/gearc.png</iconset>
+  </property>
+  <widget class="QWidget" name="wdgtCentral">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QSplitter" name="splitter_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>false</bool>
+      </property>
+      <widget class="QTreeWidget" name="treeRamos">
+       <property name="whatsThis">
+        <string>Muestra la lista de asignaturas.</string>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="animated">
+        <bool>true</bool>
+       </property>
+       <column>
+        <property name="text">
+         <string>Asignaturas</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Profesor</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelNombre">
+           <property name="text">
+            <string>Nombre del ramo</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="labelNombreProfesor">
+           <property name="text">
+            <string>Nombre del profesor</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lneNombre">
+           <property name="inputMask">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string notr="true"/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lneNombreProfesor">
+           <property name="inputMask">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string notr="true"/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frmNotas">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>157</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QGridLayout" name="layoutNotas"/>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="barMenus">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>799</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="mnuGearc">
+    <property name="title">
+     <string notr="true">&amp;Gearc</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actSalir"/>
+   </widget>
+   <widget class="QMenu" name="mnuAyuda">
+    <property name="title">
+     <string>&amp;Ayuda</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actAbout"/>
+    <addaction name="actAboutQt"/>
+   </widget>
+   <addaction name="mnuGearc"/>
+   <addaction name="mnuAyuda"/>
+  </widget>
+  <widget class="QStatusBar" name="barEstado"/>
+  <widget class="QToolBar" name="barHerramientas">
+   <property name="iconSize">
+    <size>
+     <width>25</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actNuevoRamo"/>
+   <addaction name="separator"/>
+   <addaction name="actSalir"/>
+  </widget>
+  <action name="actSalir">
+   <property name="icon">
+    <iconset resource="recursos/recursos.qrc">
+     <normaloff>:/application-exit.png</normaloff>:/application-exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Salir</string>
+   </property>
+   <property name="statusTip">
+    <string>Cierra GEARC</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actAbout">
+   <property name="text">
+    <string>Acerca de...</string>
+   </property>
+   <property name="statusTip">
+    <string>Muestra información sobre el programa y los autores</string>
+   </property>
+  </action>
+  <action name="actAboutQt">
+   <property name="text">
+    <string>Acerca de QT...</string>
+   </property>
+   <property name="statusTip">
+    <string>Muestra infomación sobre QT</string>
+   </property>
+  </action>
+  <action name="actNuevoRamo">
+   <property name="icon">
+    <iconset resource="recursos/recursos.qrc">
+     <normaloff>:/gearc.png</normaloff>:/gearc.png</iconset>
+   </property>
+   <property name="text">
+    <string>Agregar ramo...</string>
+   </property>
+   <property name="toolTip">
+    <string>Agrega un nuevo ramo.</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="recursos/recursos.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actSalir</sender>
+   <signal>triggered()</signal>
+   <receiver>GEARC_MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>255</x>
+     <y>61</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

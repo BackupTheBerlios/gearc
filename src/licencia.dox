@@ -1,23 +1,23 @@
-  Esta es una traducción no oficial de la Licencia Pública General GNU
+/**
+ \page gplv3 Licencia Pública General de GNU versión 3
+
+  <b>Esta es una traducción no oficial de la Licencia Pública General GNU
   (GNU GPL) al español. No fue publicada por la Fundación para el
   Software Libre, y no establece legalmente los términos de distribución
   para software que utiliza la GNU GPL—sólamente el texto original en
   inglés de la GNU GPL hace eso. De todas formas, esperamos que esta
-  traducción ayude a los hispanohablantes a comprender mejor la GNU GPL.
-
-      (LA LICENCIA ORIGINAL SE ENCUENTRA EN EL ARCHIVO COPYING.txt)
+  traducción ayude a los hispanohablantes a comprender mejor la GNU GPL.</b>
 
 
 
+                   <h2><center>LICENCIA PÚBLICA GENERAL GNU</h2></center>
+                  <center>Versión 3, 29 de junio de 2007</center>
 
-                   LICENCIA PÚBLICA GENERAL GNU
-                  Versión 3, 29 de junio de 2007
-
- Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ Copyright (C) 2007 Free Software Foundation, Inc. \< http://fsf.org/ \>
  Se permite la copia y distribución de copias literales de esta
  licencia, pero no está permitido modificarla.
 
-                             Preámbulo
+                             <h3><center>Preámbulo</h3></center>
 
   La Licencia Pública General GNU (GNU GPL) es una licencia libre, sin
 derechos para software y otro tipo de trabajos.
@@ -53,7 +53,7 @@ el código fuente. Y debe mostrarles estos términos y condiciones para
 que conozcan sus derechos.
 
   Los desarrolladores que usen la GPL GNU protegen sus derechos de dos
-formas: (1) imponen derechos al software, y (2) le ofrecen esta
+formas:(1) imponen derechos al software, y (2) le ofrecen esta
 Licencia para que legalmente lo copie, distribuya y/o modifique.
 
   Para proteger a desarrolladores y autores, la GPL expone claramente
@@ -87,8 +87,8 @@ programa en no-libre.
   A continuación se exponen los términos y condiciones para la copia,
 distribución y modificación.
 
-                         TÉRMINOS Y CONDICIONES
-  0. Definiciones.
+                         <h3><center>TÉRMINOS Y CONDICIONES</h3></center>
+  <h3>0. Definiciones.</h3>
 
   En adelante “Esta Licencia” se refiere a la versión 3 de la Licencia
 Pública General GNU.
@@ -134,7 +134,7 @@ esta Licencia. Si la interfaz muestra una lista de opciones o
 comandos, tales como menús, un elemento destacado en dicha lista
 cumple estos criterios.
 
-  1. Código Fuente.
+  <h3>1. Código Fuente.</h3>
 
   El "código fuente" de un trabajo es el formato preferido para realizar
 modificaciones sobre él. "Código objeto" se refiere a cualquier
@@ -181,7 +181,7 @@ la Fuente Correspondiente.
   La Fuente Correspondiente de un trabajo en código fuente es ese mismo
 trabajo. 
 
-  2. Permisos Básicos.
+  <h3>2. Permisos Básicos.</h3>
 
   Todos los derechos garantizados por esta Licencia se otorgan como
 copyright del Programa, y se proporcionan de manera irrevocable
@@ -209,7 +209,7 @@ con copyright al margen de la relación con usted.
 las condiciones establecidas más abajo. No está permitido
 sublicenciar; la claúsula 10 lo hace innecesario. 
 
-  3. Protección de Derechos Legales de los Usuarios frente a Leyes Anti-Burla.
+  <h3>3. Protección de Derechos Legales de los Usuarios frente a Leyes Anti-Burla.</h3>
 
   Ningún trabajo amparado debe considerarse parte de una medida
 tecnológica efectiva, a tenor de lo establecido en cualquier ley
@@ -225,7 +225,7 @@ intención de limitar el uso o modificación del trabajo con el objetivo
 de imponer, al trabajo de los usuarios, sus derechos legales o de
 terceros para prohibir la burla de medidas tecnológicas. 
 
-  4. Distribución de copias literales.
+  <h3>4. Distribución de copias literales.</h3>
 
   Usted podrá distribuir copias literales del código fuente del Programa
 tal y como lo ha recibido , por cualquier medio, siempre que publique
@@ -240,7 +240,7 @@ destinatarios una copia de esta Licencia junto con el Programa.
 que distribuya, y podrá ofrecer soporte o protección de garantía
 mediante un pago.
 
-  5. Distribución de Versiones Modificadas de Código.
+  <h3>5. Distribución de Versiones Modificadas de Código.</h3>
 
   Usted podrá distribuir un trabajo basado en el Programa, o las
 modificaciones que lo producen a partir del Programa, como código
@@ -255,7 +255,7 @@ siempre que cumpla todas las condiciones siguientes:
     cualquier otra condición añadida en virtud de la cláusula 7. Este
     requisito modifica el requisito de "mantener intactos todos los
     avisos" expuesto en la claúsula 4.
-	
+    
     c) En virtud del presente documento, usted deberá aplicar la licencia
     al trabajo completo, como un todo, a cualquier persona que esté en
     posesión de una copia. Por lo tanto, esta Licencia se aplicará junto
@@ -265,7 +265,7 @@ siempre que cumpla todas las condiciones siguientes:
     Licencia no permite ser aplicada al trabajo de ninguna otra forma,
     pero no se anula dicho permiso si usted lo ha recibido por separado.
     
-	d) Si el trabajo tiene interfaces de usuario interactivos, cada uno
+    d) Si el trabajo tiene interfaces de usuario interactivos, cada uno
     debe mostrar Avisos Legales Apropiados; sin embargo, si el Programa
     tiene interfaces interactivos que no muestran Avisos Legales
     Apropiados, su trabajo no tiene porqué modificarlos para que lo hagan.
@@ -281,7 +281,7 @@ allá de lo que permita el trabajo individual. La inclusión de un
 trabajo amparado en un paquete no hace aplicable esta Licencia al
 resto de elementos del paquete.
 
-  6. Distribución de código No-fuente.
+  <h3>6. Distribución de código No-fuente.</h3>
 
   Usted podrá distribuir el código objeto de un trabajo amparado en
 virtud de los términos de las cláusulas 4 y 5, siempre que también
@@ -293,7 +293,7 @@ siguientes maneras:
     (incluyendo medios de distribución físicos), acompañado de las Fuentes
     Correspondientes en un medio físico duradero y que sea utilizado
     habitualmente para el intercambio de software.
-	
+    
     b) Distribuir el código objeto en, o embebido en, un producto físico
     (incluyendo medios de distribución físicos), acompañado de una oferta
     por escrito, válida al menos durante tres años y válida durante el
@@ -313,7 +313,7 @@ siguientes maneras:
     recibió el código objeto junto con una oferta parecida, de acuerdo con
     la subcláusula 6b.
     
-	d) Distribuir el código objeto ofreciendo acceso desde un lugar
+    d) Distribuir el código objeto ofreciendo acceso desde un lugar
     determinado (gratuitamente o mediante pago), y ofrecer acceso
     equivalente a las Fuentes Correspondientes de la misma forma y en el
     mismo lugar sin cargo añadido. No es necesario exigir a los
@@ -327,7 +327,7 @@ siguientes maneras:
     Fuentes Correspondientes, usted seguirá obligado a asegurar que
     estarán disponibles durante el tiempo necesario para cumplir estos
     requisitos.
-	
+    
     e) Distribuir el código mediante transferencias entre usuarios,
     siempre que informe a otros usuarios dónde se ofrecen el código objeto
     y las Fuentes Correspondientes de forma pública sin cargo alguno, tal
@@ -392,7 +392,7 @@ en un formato documentado públicamente (y con una implementación
 disponible para el público en código fuente), y no deben necesitar
 claves de acceso especiales para la descompresión, lectura o copia.
 
-  7. Condiciones adicionales.
+  <h3>7. Condiciones adicionales.</h3>
 
   Los "Permisos Adicionales" son condicionantes que amplían los términos
 de esta Licencia permitiendo excepciones a una o más de sus
@@ -421,11 +421,11 @@ condiciones a esta Licencia con los siguientes términos:
 
     a) Ausencia de garantía o limitación de responsabilidad diferente de
     los términos establecidos en las cláusulas 15 y 16 de esta Licencia; u
-	
+    
     b) Obligación de mantener determinados avisos legales razonables o
     atribuciones de autoría en el material o en los Avisos Legales
     Correspondientes mostrados por los trabajos que lo contengan; o 
-	
+    
     c) Prohibir la tergiversación del origen del material, o solicitar que
     las diferencias respecto a la versión original sean señaladas de forma
     apropiada en las versiones modificadas del material; o 
@@ -465,7 +465,7 @@ localizar los términos aplicables.
 escrito como licencias separadas, o figurar como excepciones; de todas
 formas, los requisitos anteriores siempre son aplicables. 
 
-  8. Cancelación.
+  <h3>8. Cancelación.</h3>
 
   Usted no podrá distribuir o modificar un trabajo amparado salvo de la
 forma en la que se ha previsto expresamente en esta Licencia.
@@ -496,7 +496,7 @@ finalizado y no han sido restituidos de forma permanente, usted no
 está capacitado para recibir nuevas licencias para el mismo material
 en virtud de la cláusula 10.
 
-  9. Aceptación no obligatoria por tenencia de copias.
+  <h3>9. Aceptación no obligatoria por tenencia de copias.</h3>
 
   No está obligado a aceptar esta Licencia por recibir o ejecutar una
 copia del Programa. La distribución de un trabajo amparado surgida
@@ -508,7 +508,7 @@ acepta las los términos y condiciones de esta Licencia. Por lo tanto,
 al modificar o distribuir un trabajo amparado, usted indica que acepta
 la Licencia.
 
-  10. Herencia automática de licencia para destinatarios .
+  <h3>10. Herencia automática de licencia para destinatarios.</h3>
 
   Cada vez que distribuya un trabajo amparado, el destinatario recibirá
 automáticamente una licencia desde los poseedores originales, para
@@ -537,7 +537,7 @@ contrademandas en pleitos) alegando que se infringen patentes por
 cambiar, usar, vender, ofrecer en venta o importar el Programa, o
 cualquier parte del mismo.
 
-  11. Patentes.
+  <h3>11. Patentes.</h3>
 
   Un "colaborador" es un poseedor de copyright que autoriza el uso del
 Programa o un trabajo en el que se base el Programa bajo los términos
@@ -616,7 +616,7 @@ legales contra la violación de las leyes de propiedad intelectual a
 que pudiera tener derecho bajo la ley de propiedad intelectual
 vigente.
 
-  12. No condicionamiento de la libertad de terceros.
+  <h3>12. No condicionamiento de la libertad de terceros.</h3>
 
   Si a usted le son impuestas condiciones que contravienen las
 estipuladas en la presente Licencia (ya sea por orden judicial,
@@ -629,7 +629,7 @@ a obtener derechos por la distribución a terceros, la única forma de
 satisfacer ambos condicionantes y esta Licencia es abstenerse
 completamente de distribuir el Programa.
 
-  13. Uso conjunto con la Licencia Pública General Affero GNU.
+  <h3>13. Uso conjunto con la Licencia Pública General Affero GNU.</h3>
 
   Sin contravenir las disposiciones de la presente Licencia, usted
 tendrá permiso para enlazar o combinar cualquier trabajo amparado con
@@ -641,7 +641,7 @@ especiales de la Licencia Pública General Affero GNU, en su cláusula
 13, relativos a la interacción mediante redes, serán aplicables a la
 combinación de ambas partes.
 
-  14. Versiones Revisadas de esta Licencia.
+  <h3>14. Versiones Revisadas de esta Licencia.</h3>
 
   La Fundación para el Software Libre podrá publicar revisiones y/o
 nuevas versiones de la Licencia Pública General GNU de vez en cuando.
@@ -670,7 +670,7 @@ adicionales o diferentes. Sin embargo, no podrán imponerse
 obligaciones adicionales a cualquier autor o poseedor de copyright
 como consecuencia de que usted adopte una versión posterior.
 
-  15. Ausencia de Garantía.
+  <h3>15. Ausencia de Garantía.</h3>
 
   EL PROGRAMA NO TIENE GARANTÍA ALGUNA, HASTA LOS LÍMITES PERMITIDOS POR
 LAS LEYES APLICABLES. SALVO CUANDO SE ESTABLEZCA LO CONTRARIO POR
@@ -682,7 +682,7 @@ CUALQUIER RIESGO RELATIVO A LA CALIDAD Y RENDIMIENTO DEL PROGRAMA. SI
 EL PROGRAMA FUESE DEFECTUOSO, USTED ASUMIRÁ CUALQUIER COSTE DE
 SERVICIO, REPARACIÓN O CORRECCIÓN.
 
-  16. Limitación de Responsabilidad.
+  <h3>16. Limitación de Responsabilidad.</h3>
 
   EN NINGÚN CASO, SALVO REQUERIMIENTO POR LEYES APLICABLES O MEDIANTE
 ACUERDO POR ESCRITO, PODRÁ UN POSEEDOR DE COPYRIGHT, O UN TERCERO QUE
@@ -696,7 +696,7 @@ INTERACTUAR CON OTROS PROGRAMAS), INCLUSO EN EL CASO DE QUE EL
 POSEEDOR O UN TERCERO HAYA SIDO ADVERTIDO DE LA POSIBILIDAD DE TALES
 DAÑOS.
 
-  17. Interpretación de las cláusulas 15 y 16.
+  <h3>17. Interpretación de las cláusulas 15 y 16.</h3>
 
   Si la ausencia de garantía y la limitación de responsabilidad descrita
 anteriormente no tuviesen efecto legal a nivel local en todos sus
@@ -705,8 +705,8 @@ aproximen a la exención de responsabilidad civil en lo relativo al
 Programa, a menos que la copia del Programa esté acompañada mediante
 pago de una garantía o compromiso de responsabilidad.
 
-                    FIN DE TÉRMINOS Y CONDICIONES
-        Cómo aplicar estas condiciones a sus nuevos programas
+                    <h3><center>FIN DE TÉRMINOS Y CONDICIONES</h3></center>
+        <center>Cómo aplicar estas condiciones a sus nuevos programas</center>
 
   Si usted desarrolla un nuevo programa, y quiere darle al público el
 mayor uso posible del mismo, la mejor forma de conseguirlo es hacerlo
@@ -718,36 +718,43 @@ adjuntarlos al inicio de cada archivo fuente para hacer más explícita
 la ausencia de garantía; y cada archivo debería tener al menos la
 línea de "copyright" y un enlace a la versión completa del aviso.
 
-    <una línea con el nombre del programa y una breve idea de su objetivo.>
-    Copyright (C) <año>  <nombre del autor>
+<center> <i>
+    \<una línea con el nombre del programa y una breve idea de su objetivo.\><br>
+    Copyright (C) \<año\>  \<nombre del autor\><br>
 
-    Este programa es software libre: usted puede redistribuirlo y/o
-    modificarlo bajo los términos de la Licencia Pública General
-    GNU publicada por la Fundación para el Software Libre, ya sea
-    la versión 3 de la Licencia, o (a su elección) cualquier
-    versión posterior.
+    Este programa es software libre: usted puede redistribuirlo y/o<br>
+    modificarlo bajo los términos de la Licencia Pública General<br>
+    GNU publicada por la Fundación para el Software Libre, ya sea<br>
+    la versión 3 de la Licencia, o (a su elección) cualquier<br>
+    versión posterior.<br>
 
-    Este programa se distribuye con la esperanza de que sea útil,
-    pero SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita 
-    MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. 
-    Consulte los detalles de la Licencia Pública General GNU para
-    obtener una información más detallada. 
+    Este programa se distribuye con la esperanza de que sea útil,<br>
+    pero SIN GARANTÍA ALGUNA; ni siquiera la garantía implícita <br>
+    MERCANTIL o de APTITUD PARA UN PROPÓSITO DETERMINADO. <br>
+    Consulte los detalles de la Licencia Pública General GNU para<br>
+    obtener una información más detallada. <br>
 
-    Debería haber recibido una copia de la Licencia Pública General
-    GNU junto a este programa. En caso contrario, consulte 
-    <http://www.gnu.org/licenses/>.
-
+    Debería haber recibido una copia de la Licencia Pública General<br>
+    GNU junto a este programa. En caso contrario, consulte <br>
+    \<http://www.gnu.org/licenses/\>
+</i> </center>
+<br>
 Incluya además información de cómo contactar con usted por correo
 electrónico y ordinario.
 
   Si el programa es interactivo, haga que muestre un breve aviso como el
 siguiente cuando se inicie en modo interactivo:
+<br>
 
-    <programa>  Copyright (C) <año>  <nombre del autor>
-    Este programa se ofrece SIN GARANTÍA ALGUNA; escriba
-    'show w' para consultar los detalles.
-    Es software libre, y usted puede redistribuirlo bajo ciertas
+<center><i>
+
+    \<programa\>  Copyright (C) \<año\>  \<nombre del autor\><br>
+    Este programa se ofrece SIN GARANTÍA ALGUNA; escriba<br>
+    'show w' para consultar los detalles.<br>
+    Es software libre, y usted puede redistribuirlo bajo ciertas<br>
     condiciones; escriba 'show c' para más información.
+</i> </center>
+<br>
 
 Los hipotéticos comandos 'show w' y 'show c' deberían mostrar las
 partes correspondientes de la Licencia Pública General. Por supuesto,
@@ -758,7 +765,7 @@ gráfico de usuario, podría usar un mensaje del tipo "Acerca de".
 o escuela, en su caso, firme una "renuncia de copyright" sobre el
 programa, si fuese necesario. Para más información a este respecto, y
 saber cómo aplicar y cumplir la licencia GNU GPL, consulte
-<http://www.gnu.org/licenses/>.
+\< http://www.gnu.org/licenses/ \>.
 
   La Licencia Pública General GNU no permite incorporar sus programas
 como parte de programas propietarios. Si su programa es una subrutina
@@ -766,4 +773,5 @@ en una biblioteca, resultaría mucho más útil habilitar el enlace de
 aplicaciones propietarias a la biblioteca. Si es esto lo que quiere
 hacer, utilice la Licencia Pública General Reducida GNU en vez de esta
 Licencia. Pero por favor, consulte primero
-<http://www.gnu.org/philosophy/why-not-lgpl.html>.
+\< http://www.gnu.org/philosophy/why-not-lgpl.html \>.
+*/

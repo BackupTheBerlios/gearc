@@ -1,0 +1,192 @@
+/**
+ * \mainpage GEARC - Gestor de ramos y calificaciones.
+ * 
+ *  \section about_gearc Sobre GEARC
+ *  
+ *  GEARC Es un Administrador de Ramos y Calificaciones. \n
+ *  Está pensado para ser un programa que ayude a estudiantes a mantener un
+ *  registro de los ramos que cursan y de las calificaciones que obtienen con
+ *  lo cual pueden conocer y medir su rendimiento académico y mucho más.
+ *
+ *  GEARC aun está en un estado muy prematuro de desarrollo pero pronto poseerá
+ *  algunas funciones básicas que permitan usarlo. Algunas de las carácteristicas
+ *  que tendrá son la capacidad de almacenar los ramos que se cursan junto con
+ *  sus detalles, especificar una calificación mínima de aprobación para el ramo,
+ *  almacenar las calificaciones obtenidas y por cursar de cada ramo, calcular
+ *  el promedio actual y autocalcular las calificaciones mínimas necesarias para
+ *  cumplir con la mínima calificación requerida de aprobación... y muchas otras
+ *  características.
+ *  
+ *  GEARC es <em> software libre </em> y usted puede modificarlo y distribuirlo
+ *  líbremente dentro de ciertas condiciones. Está liberado bajo la <em>Licencia
+ *  Pública General de GNU versión 3 (GPLv3).</em> Esta y otras licencias libres
+ *  de la Free Software Fundation pueden ser encontradas en la página web
+ *  http://www.gnu.org/licenses/. Una traducción no oficial al español puede 
+ *  leerse \ref gplv3 "aquí".
+ *
+ * 
+ *  <hr>
+ *  \section intro Sobre esta documentación
+ *  
+ *  Esta es la documentación del código fuente de GEARC y está pensada principalmente
+ *  para desarrolladores que deseen unirse y colaborar con el desarrollo de GEARC,
+ *  aunque también puede servirle a cualquier persona que, por cualquier motivo,
+ *  quiera examinar y utilizar el código fuente siempre y cuando <b>cumpla con los
+ *  términos establecidos en la \ref gplv3 "licencia GPL versión 3". </b>
+ *  
+ *  Estas páginas documentan los archivos y funciones, así como las clases y sus
+ *  relaciones con otras clases que conforman el código fuente del programa;
+ *  mostrando detalladamente listas de métodos, funciones, parámetros, clases,
+ *  archivos, presentando explicaciones de cada una de ellas. También se presentan
+ *  listas de bugs, tareas pendientes, etc. De esta forma los desarrolladores
+ *  pueden conocer el estado actual de desarrollo y lo que aun falta por
+ *  implementar.
+ *  
+ *  Debido a que GEARC está construido sobre las librerías Qt se debe tener
+ *  conocimiento de estas librerías para entender correctamente el código.
+ *  Puede encontrar la documentación de Qt en http://doc.trolltech.com/4.4/index.html
+ *  
+ *  Como siempre le recordamos que si encuentra algún error o falta en esta
+ *  documentación nos lo haga saber lo antes posible y estaremos gustosos de
+ *  corregirlo lo antes posible.
+ *  
+ *   \subsection nuevo Si usted es un nuevo desarrollador en GEARC...
+ *   
+ *   Le damos las gracias y la bienvenida si usted está iniciándose como desarrolador
+ *   de GEARC. Algunas de las primeras cosas que debiera hacer es estudiar el código
+ *   fuente de GEARC ayudándose de esta documentación; además sería útil que analizara
+ *   la sección \ref escribiendo_gearc que muestra distintas \em reglas en las que
+ *   se basa el código fuente de GEARC. También podría mirar las páginas \ref todo
+ *   y \ref bug para conocer algunas de las actuales falencias de GEARC.
+ *   
+ *  
+ *  <hr>
+ *  \section escribiendo_gearc Escribiendo código para GEARC
+ *  
+ *  Si usted desea colaborar en el desarrollo de GEARC debe saber que se siguen
+ *  ciertas \em reglas de codificación y estilo en el código. Estas reglas no buscan
+ *  imponer un sistema de escritura frente a su propia forma de trabajo, sino más bien,
+ *  se exponen esperando que el código resultante sea ordenado, claro y poseyendo
+ *  coherencia tanto visual como funcional en todas sus partes. Si usted está en
+ *  desacuerdo con algunas de estas reglas o cree que las cosas pueden mejorarse
+ *  le invitamos gustosamente a que inice un debate para reevaluar cualquier punto
+ *  aquí mencionado.
+ *  
+ *   \subsection codigo_estilo Estilo del código fuente
+ *   \todo Escribir esta parte de la documentación.
+ *   
+ *   \subsection inclusiones Forma de usar la directiva #include en GEARC
+ *   
+ *   Para tener un órden al momento de llamar archivos de cabecera usando la
+ *   directiva \c \#include se presentan estas reglas:
+ *   
+ *   <em>De forma general las inclusiones se realizan desde la más particular
+ *   a la más general.</em>
+ *   
+ *   \li En los archivos que lo requieran, la cabecera de inclusión para
+ *   internacionalización Gi18n.h debe ser el primer archivo en incluirse y se
+ *   separa con una línea en blanco de las demás inclusiones.
+ *   
+ *   \li Si el código es la definición de una clase la inmediata siguiente
+ *   inclusión es la cabecera con la declaración de la clase. También se separa
+ *   de las otras inclusiones con una línea en blanco.
+ *   
+ *   \li Luego vienen todas las demás inclusiones necesarias que pertenezcan
+ *   al proyecto, comenzando con las inclusiones de los archivos \c ui si es
+ *   necesario (ui_nombrearchivo.h). Se continúa con las inclusiones de archivos
+ *   propios del proyecto que se encuentren en el mismo directorio que el
+ *   archivo actual; luego todos los archivos propios del proyecto que estén
+ *   en otros directorios. Todos estor archivos se colocan juntos (sin espacios
+ *   entre ellos) pero se separan con una línea en blanco de los demás archivos.
+ *   
+ *   \li Si existiesen inclusiones necesarias de alguna librería de terceros o
+ *   del sistema que fuera necesaria para el archivo actual se incluye luego de
+ *   las inclusiones de archivos propios del proyecto. Se separa con una línea
+ *   en blanco de las inclusiones que le siguen.
+ *   
+ *   \li Luego se agregan los archivos de inclusiones de Qt, comenzando por los
+ *   archivos pertenecientes al módulo \c QtGui y luego al módulo \c QtCore. Se
+ *   escriben todos juntos y se separan de los siguientes con una línea en blanco.
+ *   
+ *   \li Por último se incluyen, de ser necesario, cualquier archivo que pertenezca
+ *   a las librerías estándares de C++ o de la STL.
+ *   
+ *   \n Todos los archivos que se incluyan y que sean propios del proyecto deben
+ *   incluirse anteponiendo al nombre de archivo el nombre de directorio en el que
+ *   se encuentra dicho archivo de forma relativa. Se toma el directorio inicial
+ *   como el directorio en el que se encuentra el archivo actual. Si dicho archivo
+ *   se encuentra en el mismo directorio el nombre puede colocarse sin más, si se
+ *   encuentra en el directorio padre deben anteponerse dos puntos para
+ *   referenciarlo (\c../) y si se encuentra en un directorio distinto al actual
+ *   se anteponen los dos puntos y el nombre del directorio (\c ../nombre_directorio/).
+ *   Se ha tomado esta regla para poder encontrar rápidamente los archivos incluidos
+ *   al examinar un archivo del código fuente.
+ *   
+ *   Los archivos que se incluyan pertenecientes a Qt se escribirán anteponiendo
+ *   al nombre de archivo el módulo al cual corresponden (\c QtCore/ ó \c QtGui/).
+ *   
+ *   \b Ejemplo:
+ *   
+ *   Se está definiendo una clase llamada \a MiClase en el archivo \a MiClase.cpp
+ *   que se encuentra dentro del directorio llamado \a directorio1. También existen
+ *   otros archivos en los directorios \a directorio2 y \a directorio3.
+ *   La declaración de la clase está en el archivo \a MiClase.h. Se han agregado
+ *   comentarios para ejemplificar mejor el uso de cada línea.
+ *   
+ *   \code
+ *   
+ *   #include "../Gi18n.h"                       // para internacionalización
+ *   
+ *   #include "MiClase.h"                        // declaración de la clase
+ *   
+ *   #include "ui_formulario.h"                  // formulario ui de Qt en el mismo directorio
+ *   #include "OtraClase.h"                      // archivos en el mismo directorio
+ *   #include "OtraMas.h"
+ *   #include "../directorio2/ClaseNueva.h"      // archivos en otros directorio
+ *   #include "../directorio3/ClaseVieja.h"
+ *   #include "../MuchasFunciones.h"             // archivos en el directorio padre
+ *   
+ *   #include <signal.h>                         // archivo del sistema
+ *   
+ *   #include <QtGui/QPushButton>                // archivos del módulo QtGui
+ *   #include <QtGui/QLineEdit>
+ *   #include <QtCore/QDebug>                    // archivos del módulo QtCore
+ *   #include <QtCore/QList>
+ *   
+ *   #include <exception>                        // archivos de la STL de C++
+ *   
+ *   MiClase::MiClase () :
+ *   ...
+ *   
+ *   \endcode
+ *   
+ *   \todo Documentar y tratar el tema de las \a Foward \a Declarations.
+*/
+
+
+/**
+ * \page gettext GNU GetText - Traduciendo la aplicación.
+ * GNU GetText es una potente herramienta que permite básicamente que un programa
+ * pueda ser utilizado por cualquier persona en su lenguaje nativo.
+ * 
+ * Cuando un programa es escrito se espera que sea útil a los usuarios y permitir
+ * la \em internacionalización del programa es una buena forma de ayudar a este
+ * propósito. GetText posee una variedad de herramientas y utilidades que ayudan
+ * a que un programa pueda ser traducido otro idioma de forma sencilla, para ello
+ * es necesario que los programadores y documentadores usen ciertas convenciones.
+ * Si desea conocer más a fondo la forma de trabajar con GNU GetText dirígase al
+ * sitio web \todo Colocar sitio web de GNU GetText.
+ *
+ * En GEARC la forma de utilizar gettext es llamando al archivo Gi18n.h
+ * \code #include "Gi18n.h" \endcode ó \code #include "../Gi18n.h" \endcode
+ * y utilizando la función  _() de la forma que muestra el archivo Gi18n.h
+ * 
+ * \sa \ref inclusiones
+*/
+
+
+
+/**
+ * \todo Crear grupos en la documentación y enlazar los distintos documentos
+ * a estos grupos.
+*/

@@ -1,4 +1,4 @@
-/// @file gestor_nota.cpp Definición de la clase GestorNota para manejar notas.
+/// \file GNotasWindow.cpp Definición de la clase GestorNota para manejar notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,10 +20,10 @@
 *******************************************************************************/
 
 
-#include "gestor_notas.h"
+#include "GNotasWindow.h"
 
-#include <QDebug>
-#include <QMouseEvent>
+#include <QtCore/QDebug>
+//#include <QtGui/QMouseEvent>
 
 
 #define VALOR_MIN 0.1
@@ -33,13 +33,17 @@
 GestorNota::GestorNota (QWidget* parent) : QWidget (parent)
 {
     setupUi (this);
-    connect (btn_agregarnota, SIGNAL (clicked () ), this, SLOT (Agregar_Nota () ) );
-    connect (btn_calcularnotas, SIGNAL (clicked () ), this, SLOT (Calcular_Notas() ) );
+    connect (btnAgregarNota, SIGNAL (clicked () ), this, SLOT (agregarNota () ) );
+    connect (btnAutocalcular, SIGNAL (clicked () ), this, SLOT (calcularNotas() ) );
+}
+
+GestorNota::~GestorNota()
+{
+    qDebug() << "Destruyendo Gestor de notas " << this;
 }
 
 
-
-void GestorNota::Agregar_Nota ()
+void GestorNota::agregarNota ()
 {
     qDebug () << "\nAgregando nota.";
     
@@ -53,27 +57,27 @@ void GestorNota::Agregar_Nota ()
     
     // Agrega al frame
     qDebug () << "Agregando nota " << ptr << " al frame.";
-    layout_notas->addWidget (ptr);
+    lytNotas->addWidget (ptr);
     
     qDebug () << "Size (notas) : " << notas.size () << endl;
     
     // Quita el espaciador y lo coloca nuevamente pero al final
     // no he encontrado otro método para solucionarlo.
-    layout_notas->removeItem (hSpacer_notas);
-    layout_notas->addItem (hSpacer_notas);
+    lytNotas->removeItem (spcrNotas);
+    lytNotas->addItem (spcrNotas);
     
-    connect (ptr, SIGNAL (returnPressed () ), this, SLOT (Promediar () ) );
-    connect (ptr , SIGNAL (Eliminar (GNota*) ), this, SLOT (Eliminar_Nota (GNota*) ) );
-    connect (ptr, SIGNAL (Modificada (QString, GNota*) ), this, SLOT (ActualizarNota (QString, GNota*) ) );
+    connect (ptr, SIGNAL (returnPressed () ), this, SLOT (promediar() ) );
+    connect (ptr , SIGNAL (eliminar (GNota*) ), this, SLOT (eliminarNota (GNota*) ) );
+    connect (ptr, SIGNAL (modificada (QString, GNota*) ), this, SLOT (actualizarNota (QString, GNota*) ) );
 }
 
 
-float GestorNota::CalcularPromedio ()
+float GestorNota::calcularPromedio ()
 {
     qDebug () << "Promediando";
     
     float Sum = 0;
-    float Prom;
+    float Prom = 0;
     
     for (int I = 0; I < notas.size(); I++)
     {
@@ -86,27 +90,26 @@ float GestorNota::CalcularPromedio ()
     Q_ASSERT (notas.size () > 0);
     
     Prom = Sum / float (notas.size () );
-    
     return Prom;
 }
 
 
-void GestorNota::Promediar ()
+void GestorNota::promediar ()
 {
-    float Prom = CalcularPromedio ();
+    float Prom = calcularPromedio ();
     
     QString cadena;
     cadena.setNum (Prom, 'g', 3);
-    lne_promedio->setText (cadena);
+    lnePromedio->setText (cadena);
 }
 
 
-void GestorNota::Calcular_Notas()
+void GestorNota::calcularNotas()
 {
     float Valor;
     QString cadena;
     float PromE = 4.0;
-    float Prom = CalcularPromedio ();
+    float Prom = calcularPromedio ();
     
     // Coloca todas las notas automáticas a 0 antes de continuar
     for (int I = 0; I < notas.size(); I++)
@@ -135,7 +138,7 @@ void GestorNota::Calcular_Notas()
             }
         }
         
-        Prom = CalcularPromedio ();
+        Prom = calcularPromedio ();
         qDebug () << "Prom: " << Prom;
         qDebug () << "PromE: " << PromE;
     }
@@ -143,7 +146,7 @@ void GestorNota::Calcular_Notas()
 
 
 
-void GestorNota::ActualizarNota (const QString& texto, GNota* nota)
+void GestorNota::actualizarNota (const QString& texto, GNota* nota)
 {
     //qDebug () << "Nota " << nota << " modificada: " << texto;
     if (texto == "")
@@ -151,11 +154,11 @@ void GestorNota::ActualizarNota (const QString& texto, GNota* nota)
     else
         nota->setAuto (false);
         
-    Promediar ();
+    promediar ();
 }
 
 
-void GestorNota::Eliminar_Nota (GNota* nota)
+void GestorNota::eliminarNota (GNota* nota)
 {
     int Indice = notas.indexOf (nota);
     
@@ -171,7 +174,7 @@ void GestorNota::Eliminar_Nota (GNota* nota)
     
     
     qDebug () << "Quitando del layout";
-    layout_notas->removeWidget (nota);
+    lytNotas->removeWidget (nota);
     
     qDebug () << "Quitando de la lista";
     notas.removeOne (nota);
@@ -183,18 +186,18 @@ void GestorNota::Eliminar_Nota (GNota* nota)
     qDebug () << "Size (notas) : " << notas.size () << endl;
     
     if (notas.size () > 0)
-        Promediar ();
+        promediar ();
 }
 
 
 /*
 void GestorNota::mouseMoveEvent (QMouseEvent* event)
 {
-    QWidget::mouseMoveEvent (event);
-    qDebug () << "QUEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: " << event->x();
+ QWidget::mouseMoveEvent (event);
+ qDebug () << "QUEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: " << event->x();
 
 }
 */
 
 
-#include "gestor_notas.moc"
+#include "GNotasWindow.moc"

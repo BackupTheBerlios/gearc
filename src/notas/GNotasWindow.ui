@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <author>Daniel L. Contreras Pino</author>
- <class>frm_GestorNotas</class>
- <widget class="QWidget" name="frm_GestorNotas">
+ <class>wdgtNotas</class>
+ <widget class="QWidget" name="wdgtNotas">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>542</width>
-    <height>158</height>
+    <height>157</height>
    </rect>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>157</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>GEARC</string>
+   <string notr="true">GEARC</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../datos/iconos.qrc">
+   <iconset>
     <normaloff>:/iconos/iconos/gearc.png</normaloff>:/iconos/iconos/gearc.png</iconset>
   </property>
   <layout class="QGridLayout" name="layoutcentral">
    <item row="1" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QScrollArea" name="frame_notas">
+      <widget class="QScrollArea" name="frmNotas">
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
@@ -32,18 +38,18 @@
        <property name="widgetResizable">
         <bool>true</bool>
        </property>
-       <widget class="QWidget" name="widget_notas">
+       <widget class="QWidget" name="wdgtNotasBox">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
           <width>432</width>
-          <height>62</height>
+          <height>61</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="layout_notas">
+        <layout class="QHBoxLayout" name="lytNotas">
          <item>
-          <spacer name="hSpacer_notas">
+          <spacer name="spcrNotas">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -76,7 +82,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QLineEdit" name="lne_promedio">
+      <widget class="QLineEdit" name="lnePromedio">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
          <horstretch>0</horstretch>
@@ -116,7 +122,7 @@
     </layout>
    </item>
    <item row="0" column="0">
-    <widget class="QToolButton" name="btn_agregarnota">
+    <widget class="QToolButton" name="btnAgregarNota">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -151,7 +157,7 @@
     </widget>
    </item>
    <item row="2" column="0">
-    <widget class="QPushButton" name="btn_calcularnotas">
+    <widget class="QPushButton" name="btnAutocalcular">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -162,14 +168,14 @@
       <string>Autocalcula las notas restantes para alcanzar un promedio dado.</string>
      </property>
      <property name="text">
-      <string notr="true">&amp;Autocalcular notas</string>
+      <string>&amp;Autocalcular notas</string>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
  <resources>
-  <include location="../../datos/iconos.qrc"/>
+  <include location="../recursos/recursos.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -1,4 +1,4 @@
-/// \file main.cpp Archivo de partida para GEARC.
+/// \file GListaRamos.h Declaración de la clase GListaRamos.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -19,52 +19,32 @@
 *      <http://www.gnu.org/licenses/>.                                        *
 *******************************************************************************/
 
-#include "Gi18n.h"
 
-#include "GEARC_MainWindow.h"
+#include "GListaRamos.h"
 
-#include <QtGui/QApplication>
 #include <QtCore/QDebug>
-#include <QtCore/QTextCodec>
 
-/**
- * Función de partida. Crea un objeto \a QApplication, establece la codificación,
- * crea un objeto GEARC_MainWindow con la ventana principal y entra en la sentencia
- * <tt> gearc.exec () </tt> que inicia el bucle interno de \a QApplication.
- *
- * \return el valor entregado por <tt> gearc.exec () </tt>.
-*/
 
-int main (int argc, char **argv)
+GListaRamos::GListaRamos()
 {
-    qDebug() << "Iniciando GEARC" << endl;
-    
-    if (!asignarIdioma () )
-    {
-        qDebug() << "No se inició GetText.";
-    }
-    
-    QApplication gearc (argc, argv);
-    
-    
-    QTextCodec::setCodecForCStrings (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForLocale (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForTr (QTextCodec::codecForName ("UTF-8") );
-    qDebug() << "Seleccionando UTF-8 como codificación por defecto.";
-    qDebug() << endl;
-    
-    //GEARC_MainWindow *principal = new GEARC_MainWindow ();
-    GEARC_MainWindow principal;
-    
-    qDebug() << "Creada ventana principal. " << &principal;
-    
-    principal.show ();
-    
-    int run = gearc.exec ();
-    
-    qDebug() << endl << "Cerrando GEARC";
-    
-    //delete principal;
-    
-    return run;
+
 }
+
+GListaRamos::~GListaRamos()
+{
+    while (!listaRamos.isEmpty() )
+    {
+        qDebug() << "Removiendo el GRamo " << listaRamos.last();
+        delete listaRamos.last();
+        listaRamos.removeLast();
+    }
+}
+
+void GListaRamos::agregarRamo (QString nombre, QString nombreProfesor)
+{
+    listaRamos.append (new GRamo() );
+    qDebug() << "Insertado el GRamo " << listaRamos.last();
+    qDebug() << "Size (listaRamos): " << listaRamos.size();
+}
+
+

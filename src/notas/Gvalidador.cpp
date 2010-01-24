@@ -1,4 +1,4 @@
-/// @file Gvalidador.cpp Definición de la clase GValidador para las Notas.
+/// \file Gvalidador.cpp Definición de la clase GValidador para las Notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *

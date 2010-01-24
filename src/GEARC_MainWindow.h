@@ -1,4 +1,4 @@
-/// \file main.cpp Archivo de partida para GEARC.
+/// \file GEARC_MainWindow.h Declaración de la interfaz gráfica principal.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -19,52 +19,53 @@
 *      <http://www.gnu.org/licenses/>.                                        *
 *******************************************************************************/
 
+
+#ifndef GMAINWINDOW_H
+#define GMAINWINDOW_H
+
 #include "Gi18n.h"
 
-#include "GEARC_MainWindow.h"
+#include "ui_GEARC_MainWindow.h"
+#include "notas/GNotasWindow.h"
 
-#include <QtGui/QApplication>
-#include <QtCore/QDebug>
-#include <QtCore/QTextCodec>
+#include <QtGui/QMainWindow>
+
+// Declaraciones aplazadas (Forward declarations)
+class GListaRamos;
+
 
 /**
- * Función de partida. Crea un objeto \a QApplication, establece la codificación,
- * crea un objeto GEARC_MainWindow con la ventana principal y entra en la sentencia
- * <tt> gearc.exec () </tt> que inicia el bucle interno de \a QApplication.
+ * \class GEARC_MainWindow
+ * \brief Ventana principal de GEARC.
  *
- * \return el valor entregado por <tt> gearc.exec () </tt>.
+ * GEARC_MainWindow posee los métodos y propiedades que determinan la ventana
+ * principal de GEARC. Es heredada de \c QMainWindow y de \c Ui::GEARC_MainWindow, la
+ * cual es generada a partir del archivo \c GMainWindow.ui.
+ *
+ * \sa main.cpp
 */
 
-int main (int argc, char **argv)
+class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
 {
-    qDebug() << "Iniciando GEARC" << endl;
+    Q_OBJECT
     
-    if (!asignarIdioma () )
-    {
-        qDebug() << "No se inició GetText.";
-    }
-    
-    QApplication gearc (argc, argv);
+public:
+
+    GEARC_MainWindow (QWidget *parent = 0);
+    ~GEARC_MainWindow ();
     
     
-    QTextCodec::setCodecForCStrings (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForLocale (QTextCodec::codecForName ("UTF-8") );
-    QTextCodec::setCodecForTr (QTextCodec::codecForName ("UTF-8") );
-    qDebug() << "Seleccionando UTF-8 como codificación por defecto.";
-    qDebug() << endl;
+public slots:
+
+    void showAcercaDe ();
+    void agregarRamo ();
+    void itemApretado (QTreeWidgetItem *item, int column);
     
-    //GEARC_MainWindow *principal = new GEARC_MainWindow ();
-    GEARC_MainWindow principal;
-    
-    qDebug() << "Creada ventana principal. " << &principal;
-    
-    principal.show ();
-    
-    int run = gearc.exec ();
-    
-    qDebug() << endl << "Cerrando GEARC";
-    
-    //delete principal;
-    
-    return run;
-}
+private:
+
+    GestorNota *gestorNotas; /**< Ventana que manipula las notas, se empotra en la ventana principal. */
+    GListaRamos *listaRamos; /**< Mantiene en memoria la lista de ramos. */
+    QList<QTreeWidgetItem *> itemsRamos;
+};
+
+#endif // GMAINWINDOW_H

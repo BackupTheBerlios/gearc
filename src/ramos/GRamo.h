@@ -1,4 +1,4 @@
-/// @file gearc.h Declaración de la interfaz gráfica principal.
+/// \file GRamo.h Declaración de la clase GRamo que representa una asignatura.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -19,32 +19,56 @@
 *      <http://www.gnu.org/licenses/>.                                        *
 *******************************************************************************/
 
+#ifndef GRAMO_H
+#define GRAMO_H
 
-#ifndef GEARC_H
-#define GEARC_H
+#include <QtCore/QString>
 
-#include "ui_GMainWindow.h"
+/**
+ * \class GRamo
+ * \brief Representa un ramo o asignatura en GEARC.
+ *
+ *
+*/
 
-#include <QMainWindow>
-#include <QList>
-
-#include "gestor_notas.h"
-
-
-class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
+class GRamo
 {
-    Q_OBJECT
-    
 public:
-    GEARC_MainWindow (QWidget *parent = 0);
-    ~GEARC_MainWindow ();
+
+    /** Constructor por defecto de GRamo. */
+    GRamo();
+    
+    /** Destructor de GRamo. */
+    ~GRamo();
+    
+    /**
+     * Establece el nombre del ramo.
+     * \sa nombre
+    */
+    void setNombre (const QString &nVal) {m_Nombre = nVal;}
+    
+    /**
+     * Establece el nombre del profesor del ramo.
+     * \sa nombreProfesor
+    */
+    void setNombreProfesor (const QString &nVal) {m_NombreProfesor = nVal;}
+    
+    /**
+     * Retorna el nombre del ramo.
+     * \sa setNombre
+    */
+    QString nombre () const {return m_Nombre;}
+    
+    /**
+     * Retorna el nombre del profesor del ramo.
+     * \sa setNombreProfesor
+    */
+    QString nombreProfesor () const {return m_NombreProfesor;}
     
 private:
-    QList <QLineEdit*> notas;
-    GestorNota *g_notas;
+    QString m_Nombre; /**< Nombre del ramo */
+    QString m_NombreProfesor; /**< Nombre del profesor del ramo */
     
-public slots:
-    void acercaDe();
 };
 
-#endif // GEARC_H
+#endif // GRAMO_H
