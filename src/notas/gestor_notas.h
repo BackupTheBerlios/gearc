@@ -41,7 +41,7 @@ class GestorNota : public QWidget, private Ui::frm_GestorNotas
 	public slots:
 		void Agregar_Nota ();
 		void Promediar ();
-		void ActualizarNota (const QString& texto);
+		void ActualizarNota (const QString& texto, GNota *nota);
 		void Eliminar_Nota (GNota *nota);
 		
 	private:

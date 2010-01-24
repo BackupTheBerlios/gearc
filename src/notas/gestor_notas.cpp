@@ -60,9 +60,9 @@ void GestorNota::Agregar_Nota ()
 	layout_notas->removeItem (hSpacer_notas);
 	layout_notas->addItem (hSpacer_notas);
 	
-	connect (ptr, SIGNAL (returnPressed()), this, SLOT (Promediar()));
-	connect (ptr , SIGNAL (Eliminar(GNota*)), this, SLOT (Eliminar_Nota (GNota*)));
-	connect (ptr, SIGNAL (textChanged (QString)), this, SLOT (ActualizarNota (QString)));
+	connect (ptr, SIGNAL (returnPressed () ), this, SLOT (Promediar () ) );
+	connect (ptr , SIGNAL (Eliminar (GNota*) ), this, SLOT (Eliminar_Nota (GNota*) ) );
+	connect (ptr, SIGNAL (Modificada (QString, GNota*) ), this, SLOT (ActualizarNota (QString, GNota*) ) );
 }
 
 
@@ -89,8 +89,14 @@ void GestorNota::Promediar ()
 }
 
 
-void GestorNota::ActualizarNota (const QString &texto)
+void GestorNota::ActualizarNota (const QString& texto, GNota* nota)
 {
+	//qDebug () << "Nota " << nota << " modificada: " << texto;
+	if (texto == "")
+		nota->setAuto (true);
+	else
+		nota->setAuto (false);
+	
 	Promediar ();
 }
 

@@ -35,12 +35,17 @@ class GNota : public QLineEdit
 		GNota (double valor, QWidget *parent = 0);
 		
 		bool isAuto () const {return automatica;}
+		void setAuto (bool nwauto = true);
 		
 	private slots:
 		void on_btnEliminar_clicked ();
+		void on_GNota_textChanged (const QString &texto);
+		
 		
 	signals:
 		void Eliminar (GNota *objeto);
+		void Modificada (const QString &texto, GNota *objeto);
+		
 		
 	private:
 		QPushButton *btnEliminar;
