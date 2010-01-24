@@ -39,6 +39,7 @@ GNota::GNota (QWidget* parent) : QLineEdit (parent), automatica (true)
 	// Crea el boton eliminar nota
 	btnEliminar = new QPushButton (this);
 	btnEliminar->setText ("-");
+	btnEliminar->setFocusPolicy (Qt::NoFocus);
 	
 	// btnEliminar->setVisible (false);
 	
@@ -66,7 +67,7 @@ void GNota::on_btnEliminar_clicked ()
 {
 	// Cuando se presiona el botón 'btnEliminar' se activa esta señal
 	// la cual envía la dirección de memoria de la nota a eliminar.
-	emit Cliqueado (this);
+	emit Eliminar (this);
 }
 
 #include "Gnota.moc"

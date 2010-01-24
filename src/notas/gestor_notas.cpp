@@ -61,12 +61,13 @@ void GestorNota::Agregar_Nota ()
 	layout_notas->addItem (hSpacer_notas);
 	
 	connect (ptr, SIGNAL (returnPressed()), this, SLOT (Promediar()));
-	connect (ptr , SIGNAL (Cliqueado(GNota*)), this, SLOT (Eliminar_Nota (GNota*)));
+	connect (ptr , SIGNAL (Eliminar(GNota*)), this, SLOT (Eliminar_Nota (GNota*)));
+	connect (ptr, SIGNAL (textChanged (QString)), this, SLOT (Promediar (QString)));
 }
 
 
 
-void GestorNota::Promediar (void)
+void GestorNota::Promediar ()
 {
 	qDebug () << "Promediando";
 	
@@ -87,6 +88,11 @@ void GestorNota::Promediar (void)
 	lne_promedio->setText (cadena);
 }
 
+
+void GestorNota::Promediar (const QString &texto)
+{
+	Promediar ();
+}
 
 
 void GestorNota::MostrarBoton (GNota* nota, bool mostrar)
@@ -122,6 +128,9 @@ void GestorNota::Eliminar_Nota (GNota* nota)
 	nota->close ();
 	
 	qDebug () << "Size (notas) : " << notas.size () << endl;
+	
+	if (notas.size () > 0)
+		Promediar ();
 }
 
 

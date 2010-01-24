@@ -45,7 +45,7 @@ class GNota : public QLineEdit
 		void on_btnEliminar_clicked ();
 		
 	signals:
-		void Cliqueado (GNota *objeto);
+		void Eliminar (GNota *objeto);
 		
 	private:
 		QColor color;
