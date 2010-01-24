@@ -1,0 +1,14 @@
+GEARC 0.0.1 (desarrollo)  18 octubre 2009
+------------------------------------------
+
+-Desarrollo QT iniciado:
+  * Creadas plantillas para proyectos.
+  * CMakeLists.txt con directivas para compilar código y GUI de QT4.
+  
+-GEARC
+  * Utilizando QT4 para crear la interfaz.
+  * La ventana principal creada con Qt-Designer.
+  * Usando gettext para la internacionalization (gi18n.h)
+  * Iniciado sistema de calificaciones dinámicas.
+  * Cálculo de media aritmética de las notas ingresadas.
+  

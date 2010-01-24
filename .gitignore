@@ -11,3 +11,4 @@
 *.uic
 build/*
 kbuild/*
+.kdev4/*
