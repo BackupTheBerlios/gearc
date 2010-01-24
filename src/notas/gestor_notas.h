@@ -36,11 +36,12 @@ class GestorNota : public QWidget, private Ui::frm_GestorNotas
 		
 	public:
 		GestorNota (QWidget *parent = 0);
-		~GestorNota ();
 		
 	public slots:
 		void Agregar_Nota ();
+		float CalcularPromedio ();
 		void Promediar ();
+		void Calcular_Notas ();
 		void ActualizarNota (const QString& texto, GNota *nota);
 		void Eliminar_Nota (GNota *nota);
 		

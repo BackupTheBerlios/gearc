@@ -24,8 +24,10 @@
 
 #include <QDebug>
 
-GNota::GNota (QWidget* parent) : QLineEdit (parent), automatica (true)
+GNota::GNota (QWidget* parent) : QLineEdit (parent)
 {
+	automatica = true;
+	
 	// Asigna el color amarillo a la nota
 	color.setRgb (250, 255, 200);
 	pal.setColor (QPalette::Base, color);
@@ -53,12 +55,14 @@ GNota::GNota (QWidget* parent) : QLineEdit (parent), automatica (true)
 	btnEliminar->setCursor(QCursor(Qt::ArrowCursor));
 	
 	connect (btnEliminar, SIGNAL (clicked () ), this, SLOT (on_btnEliminar_clicked () ) );
-	connect (this, SIGNAL (textChanged (QString) ),this, SLOT (on_GNota_textChanged (QString) ) );
+	connect (this, SIGNAL (textEdited (QString) ),this, SLOT (on_GNota_textChanged (QString) ) );
 }
 
 
-GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent), automatica (false)
+GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent)
 {
+	automatica = false;
+	
 	// Asigna el color normal a la nota
 	setPalette (QPalette());
 }

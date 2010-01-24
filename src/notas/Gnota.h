@@ -34,7 +34,7 @@ class GNota : public QLineEdit
 		GNota (QWidget* parent = 0);
 		GNota (double valor, QWidget *parent = 0);
 		
-		bool isAuto () const {return automatica;}
+		bool isAuto () {return automatica;}
 		void setAuto (bool nwauto = true);
 		
 	private slots:

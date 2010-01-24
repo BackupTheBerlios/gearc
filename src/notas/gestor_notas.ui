@@ -7,8 +7,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>511</width>
-    <height>123</height>
+    <width>542</width>
+    <height>158</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,8 +33,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>407</width>
-          <height>59</height>
+          <width>438</width>
+          <height>65</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="layout_notas">
@@ -146,28 +146,24 @@
      </property>
     </widget>
    </item>
+   <item row="2" column="0">
+    <widget class="QPushButton" name="btn_calcularnotas">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="toolTip">
+      <string>Autocalcula las notas restantes para alcanzar un promedio dado.</string>
+     </property>
+     <property name="text">
+      <string notr="true">&amp;Autocalcular notas</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>btn_agregarnota</sender>
-   <signal>clicked(bool)</signal>
-   <receiver>frm_GestorNotas</receiver>
-   <slot>Agregar_Nota()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>17</x>
-     <y>21</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>78</x>
-     <y>10</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
- <slots>
-  <slot>Agregar_Nota()</slot>
- </slots>
+ <connections/>
 </ui>

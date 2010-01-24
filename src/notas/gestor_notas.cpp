@@ -25,16 +25,18 @@
 #include <QDebug>
 #include <QMouseEvent>
 
+
+#define VALOR_MIN 0.1
+
+
+
 GestorNota::GestorNota (QWidget* parent) : QWidget (parent)
 {
 	setupUi (this);
+	connect (btn_agregarnota, SIGNAL (clicked () ), this, SLOT (Agregar_Nota () ) );
+	connect (btn_calcularnotas, SIGNAL (clicked () ), this, SLOT (Calcular_Notas() ) );
 }
 
-
-GestorNota::~GestorNota ()
-{
-	
-}
 
 
 void GestorNota::Agregar_Nota ()
@@ -66,27 +68,78 @@ void GestorNota::Agregar_Nota ()
 }
 
 
-
-void GestorNota::Promediar ()
+float GestorNota::CalcularPromedio ()
 {
 	qDebug () << "Promediando";
 	
 	float Sum = 0;
-	double Prom;
+	float Prom;
 	
 	for (int I = 0; I < notas.size(); I++)
 	{
-		Sum += (notas[I]->text().toFloat());
+		Sum += (notas[I]->text ().toFloat () );
 	}
+	
 	qDebug () << "Sum: " << Sum;
 	qDebug () << "Size (notas) : " << notas.size();
-	Q_ASSERT (notas.size() > 0);
 	
-	Prom = Sum / float (notas.size ());
+	Q_ASSERT (notas.size () > 0);
+	
+	Prom = Sum / float (notas.size () );
+	
+	return Prom;
+}
+
+
+void GestorNota::Promediar ()
+{
+	float Prom = CalcularPromedio ();
+	
 	QString cadena;
-	cadena.setNum (Prom, 'g', 2);
+	cadena.setNum (Prom, 'g', 3);
 	lne_promedio->setText (cadena);
 }
+
+
+void GestorNota::Calcular_Notas()
+{
+	float Valor;
+	QString cadena;
+	float PromE = 4.0;
+	float Prom = CalcularPromedio ();
+	
+	// Coloca todas las notas automáticas a 0 antes de continuar
+	for (int I = 0; I < notas.size(); I++)
+	{
+		if (notas[I]->isAuto () )
+			notas[I]->clear ();
+	}
+	
+	while (PromE > Prom)
+	{
+		for (int I = 0; I < notas.size(); I++)
+		{
+			qDebug () << endl;
+			qDebug () << "I: " << I;
+			qDebug () << notas[I]->isAuto ();
+			if (notas[I]->isAuto () )
+			{
+				Valor = (notas[I]->text ().toFloat () + VALOR_MIN);
+				//Valor += VALOR_MIN;
+				qDebug () << "Valor: " << Valor;
+				cadena.setNum (Valor, 'g', 3);
+				notas[I]->setText (cadena);
+				qDebug () << "Cadena: " << cadena;
+				qDebug () << "Texto: " << notas[I]->text ();
+			}
+		}
+		
+		Prom = CalcularPromedio ();
+		qDebug () << "Prom: " << Prom;
+		qDebug () << "PromE: " << PromE;
+	}
+}
+
 
 
 void GestorNota::ActualizarNota (const QString& texto, GNota* nota)
