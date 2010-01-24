@@ -1,0 +1,21 @@
+Esta versiónde GEARC se encuentra en un estado muy temprano de desarrollo y
+puede ser excesivamente inestable e inusable, si desea usar GEARC le recomendamos
+encarecidamente que espere al menos hasta la primera alfa.
+
+Para programar GEARC se está usando KDevelop 4, QT y cmake. Actualmente está
+siendo programado bajo un sistema GNU/Linux, por tanto el fin de linea corresponde
+con el de dicho sistema y la codificación de texto es UTF-8.
+
+Se necesita como mínimo CMake (2.6) y QT (4.3).
+
+Se ha probado la compilación sobre Windows XP usando MinGW 4 y MSys 1.0; aunque aun
+no se garantiza completamente su funcionamiento. Las utilidades de GNU GetText
+fallaban al momento de compilar por tanto se ha deshabilitado en entornos Windows.
+
+
+GEARC se desarrolla actualmente por: Daniel L. Contreras P. <inextremares@users.berlios.de>
+
+Página de proyecto en BerliOS: http://developer.berlios.de/projects/gearc
+
+
+Muchas gracias por estar interesado en GEARC.
