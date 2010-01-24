@@ -23,6 +23,7 @@
 #include "gestor_notas.h"
 
 #include <QDebug>
+#include <QMouseEvent>
 
 GestorNota::GestorNota (QWidget* parent) : QWidget (parent)
 {
@@ -39,7 +40,6 @@ GestorNota::~GestorNota ()
 void GestorNota::Agregar_Nota ()
 {
 	qDebug () << "\nAgregando nota.";
-	qDebug () << "Size (notas) : " << notas.size ();
 	
 	// Crea una nueva nota
 	GNota *ptr = new GNota (this);
@@ -53,46 +53,86 @@ void GestorNota::Agregar_Nota ()
 	qDebug () << "Agregando nota " << ptr << " al frame.";
 	layout_notas->addWidget (ptr);
 	
+	qDebug () << "Size (notas) : " << notas.size () << endl;
+	
 	// Quita el espaciador y lo coloca nuevamente pero al final
 	// no he encontrado otro método para solucionarlo.
 	layout_notas->removeItem (hSpacer_notas);
 	layout_notas->addItem (hSpacer_notas);
+	
+	connect (ptr, SIGNAL (returnPressed()), this, SLOT (Promediar()));
+	connect (ptr , SIGNAL (Cliqueado(GNota*)), this, SLOT (Eliminar_Nota (GNota*)));
+}
+
+
+
+void GestorNota::Promediar (void)
+{
+	qDebug () << "Promediando";
+	
+	float Sum = 0;
+	double Prom;
+	
+	for (int I = 0; I < notas.size(); I++)
+	{
+		Sum += (notas[I]->text().toFloat());
+	}
+	qDebug () << "Sum: " << Sum;
+	qDebug () << "Size (notas) : " << notas.size();
+	Q_ASSERT (notas.size() > 0);
+	
+	Prom = Sum / float (notas.size ());
+	QString cadena;
+	cadena.setNum (Prom, 'g', 2);
+	lne_promedio->setText (cadena);
+}
+
+
+
+void GestorNota::MostrarBoton (GNota* nota, bool mostrar)
+{
+	nota->btnEliminar->setVisible (mostrar);
+}
+
+
+
+void GestorNota::Eliminar_Nota (GNota* nota)
+{
+	int Indice = notas.indexOf (nota);
+	
+	qDebug () << "\nEliminando nota." << endl;
+	
+	qDebug () << "Indice : " << Indice;
+	qDebug () << "Size (notas) : " << notas.size () << endl;
+	
+	qDebug () << "Invisibilizando widget";
+	notas[Indice]->setVisible (false);
+	
+	qDebug () << "Nota a eliminar: " << nota;
+	
+	
+	qDebug () << "Quitando del layout";
+	layout_notas->removeWidget (nota);
+	
+	qDebug () << "Quitando de la lista";
+	notas.removeOne (nota);
+	
+	qDebug () << "Eliminando objeto" << nota;
+	
+	nota->close ();
+	
+	qDebug () << "Size (notas) : " << notas.size () << endl;
 }
 
 
 /*
-void GestorNota::Eliminar_nota (void)
+void GestorNota::mouseMoveEvent (QMouseEvent* event)
 {
-	qDebug () << "\nEliminando nota.";
-	qDebug () << "Size (notas) : " << notas.size ();
+	QWidget::mouseMoveEvent (event);
+	qDebug () << "QUEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: " << event->x();
 	
-	// Hace al widget de la nota invisible.
-	qDebug () << "Invisibilizando widget";
-	notas[notas.size() - 1]->setVisible (false);
-	
-	// Devuelve la última nota de la lista.
-	GNota *ptr = notas.last ();
-	qDebug () << "Nota a eliminar: " << ptr;
-	
-	Q_ASSERT (ptr == notas[notas.size() - 1]);
-	
-	// Elimina dicha nota de la lista.
-	qDebug () << "Quitando de la lista";
-	notas.removeOne (ptr);
-	
-	// Destruye el objeto
-	qDebug () << "Eliminando objeto" << ptr;
-	bool elim = ptr->close ();
-	qDebug () << "Eliminado?: " << elim;
-	
-	qDebug () << "Size (notas) : " << notas.size ();
 }
 */
-
-void GestorNota::Promediar (void)
-{
-	
-}
 
 
 #include "gestor_notas.moc"

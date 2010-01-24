@@ -40,10 +40,15 @@ class GestorNota : public QWidget, private Ui::frm_GestorNotas
 		
 	public slots:
 		void Agregar_Nota ();
-		void Promediar (void);
+		void Promediar ();
+		void MostrarBoton (GNota *nota, bool mostrar = true);
+		void Eliminar_Nota (GNota *nota);
 		
 	private:
 		QList <GNota*> notas;
+		
+	protected:
+		//void mouseMoveEvent (QMouseEvent *event);
 		
 };
 

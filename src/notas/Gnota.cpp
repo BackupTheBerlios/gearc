@@ -33,8 +33,25 @@ GNota::GNota (QWidget* parent) : QLineEdit (parent), automatica (true)
 	
 	// Ajusta el tamaño de la nota
 	setSizePolicy (QSizePolicy::Fixed, QSizePolicy::Fixed);
-	setMinimumSize (55, 35);
-	setMaximumSize (55, 35);
+	setMinimumSize (60, 35);
+	setMaximumSize (60, 35);
+	
+	// Crea el boton eliminar nota
+	btnEliminar = new QPushButton (this);
+	btnEliminar->setText ("-");
+	
+	// btnEliminar->setVisible (false);
+	
+	btnEliminar->setGeometry(60 - 15, 35 - 15, 15, 15);
+	
+	// Ajusta las propiedades del botón eliminar nota
+	QFont font;
+	font.setPointSize(12);
+	font.setBold(true);
+	btnEliminar->setFont (font);
+	btnEliminar->setCursor(QCursor(Qt::ArrowCursor));
+	
+	connect (btnEliminar, SIGNAL (clicked()), this, SLOT (on_btnEliminar_clicked()));
 }
 
 
@@ -43,3 +60,13 @@ GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent), automatica (f
 	// Asigna el color normal a la nota
 	setPalette (QPalette());
 }
+
+
+void GNota::on_btnEliminar_clicked ()
+{
+	// Cuando se presiona el botón 'btnEliminar' se activa esta señal
+	// la cual envía la dirección de memoria de la nota a eliminar.
+	emit Cliqueado (this);
+}
+
+#include "Gnota.moc"

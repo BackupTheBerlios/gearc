@@ -24,23 +24,33 @@
 #define CALIFICACION_H
 
 #include <QLineEdit>
-
+#include <QPushButton>
 
 class GNota : public QLineEdit
 {
-	private:
-		QColor color;
-		QPalette pal;
-		bool automatica;
-		
+	Q_OBJECT
+	
 	public:
 		GNota (QWidget* parent = 0);
 		GNota (double valor, QWidget *parent = 0);
+		
+		QPushButton *btnEliminar;
 		
 		bool isAuto () const
 		{
 			return automatica;
 		}
+		
+	private slots:
+		void on_btnEliminar_clicked ();
+		
+	signals:
+		void Cliqueado (GNota *objeto);
+		
+	private:
+		QColor color;
+		QPalette pal;
+		bool automatica;
 };
 
 #endif // CALIFICACION_H
