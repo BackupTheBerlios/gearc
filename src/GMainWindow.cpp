@@ -1,4 +1,4 @@
-/// @file main.cpp Archivo inicial.
+/// @file gearc.cpp Definición de la interfaz gráfica principal.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,35 +20,34 @@
 *******************************************************************************/
 
 
+
 #include <QApplication>
-#include <QDebug>
+#include <QMainWindow>
+#include <QValidator>
+#include <QLineEdit>
 
 #include "GMainWindow.h"
-#include "Gi18n.h"
+#include "gestor_notas.h"
 
-int main(int argc, char **argv)
+#include <QDebug>
+
+GEARC_MainWindow::GEARC_MainWindow (QWidget* parent) : QMainWindow (parent), Ui::GEARC_MainWindow ()
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
+	qDebug() << "Creando interfaz. " << this;
+	// Establece la interfaz gráfica
+	setupUi (this);
 	
-	qDebug() << "Iniciando GEARC" << endl;
+	qDebug() << "Creando Gestor de Notas.";
+	g_notas = new GestorNota (this);
 	
-	
-        QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
-	
-	qDebug() << "Creada ventana principal. " << principal;
-	
-	principal->show ();
-	
-	int run = gearc.exec ();
-	
-	qDebug() << endl << "Cerrando GEARC";
-        delete principal;
-	
-    return run;
+	layout_central->addWidget (g_notas);
 }
+
+
+GEARC_MainWindow::~GEARC_MainWindow()
+{
+	qDebug() << "Destruyendo interfaz. " << this;
+}
+
+
+#include "GMainWindow.moc"

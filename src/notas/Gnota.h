@@ -1,4 +1,4 @@
-/// @file main.cpp Archivo inicial.
+/// @file nota.h Declaración de la clase GNota.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,35 +20,37 @@
 *******************************************************************************/
 
 
-#include <QApplication>
-#include <QDebug>
+#ifndef CALIFICACION_H
+#define CALIFICACION_H
 
-#include "GMainWindow.h"
-#include "Gi18n.h"
+#include <QLineEdit>
+#include <QPushButton>
 
-int main(int argc, char **argv)
+class GNota : public QLineEdit
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
+	Q_OBJECT
 	
-	qDebug() << "Iniciando GEARC" << endl;
-	
-	
-        QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
-	
-	qDebug() << "Creada ventana principal. " << principal;
-	
-	principal->show ();
-	
-	int run = gearc.exec ();
-	
-	qDebug() << endl << "Cerrando GEARC";
-        delete principal;
-	
-    return run;
-}
+	public:
+		GNota (QWidget* parent = 0);
+		GNota (double valor, QWidget *parent = 0);
+		
+		QPushButton *btnEliminar;
+		
+		bool isAuto () const
+		{
+			return automatica;
+		}
+		
+	private slots:
+		void on_btnEliminar_clicked ();
+		
+	signals:
+		void Cliqueado (GNota *objeto);
+		
+	private:
+		QColor color;
+		QPalette pal;
+		bool automatica;
+};
+
+#endif // CALIFICACION_H

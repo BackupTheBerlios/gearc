@@ -1,4 +1,4 @@
-/// @file main.cpp Archivo inicial.
+/// @file nota.cpp Definición de la clase GNota.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,35 +20,53 @@
 *******************************************************************************/
 
 
-#include <QApplication>
+#include "Gnota.h"
+
 #include <QDebug>
 
-#include "GMainWindow.h"
-#include "Gi18n.h"
-
-int main(int argc, char **argv)
+GNota::GNota (QWidget* parent) : QLineEdit (parent), automatica (true)
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
+	// Asigna el color amarillo a la nota
+	color.setRgb (250, 255, 200);
+	pal.setColor (QPalette::Base, color);
+	setPalette (pal);
 	
-	qDebug() << "Iniciando GEARC" << endl;
+	// Ajusta el tamaño de la nota
+	setSizePolicy (QSizePolicy::Fixed, QSizePolicy::Fixed);
+	setMinimumSize (60, 35);
+	setMaximumSize (60, 35);
 	
+	// Crea el boton eliminar nota
+	btnEliminar = new QPushButton (this);
+	btnEliminar->setText ("-");
 	
-        QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
+	// btnEliminar->setVisible (false);
 	
-	qDebug() << "Creada ventana principal. " << principal;
+	btnEliminar->setGeometry(60 - 15, 35 - 15, 15, 15);
 	
-	principal->show ();
+	// Ajusta las propiedades del botón eliminar nota
+	QFont font;
+	font.setPointSize(12);
+	font.setBold(true);
+	btnEliminar->setFont (font);
+	btnEliminar->setCursor(QCursor(Qt::ArrowCursor));
 	
-	int run = gearc.exec ();
-	
-	qDebug() << endl << "Cerrando GEARC";
-        delete principal;
-	
-    return run;
+	connect (btnEliminar, SIGNAL (clicked()), this, SLOT (on_btnEliminar_clicked()));
 }
+
+
+GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent), automatica (false)
+{
+	// Asigna el color normal a la nota
+	setPalette (QPalette());
+}
+
+
+void GNota::on_btnEliminar_clicked ()
+{
+	// Cuando se presiona el botón 'btnEliminar' se activa esta señal
+	// la cual envía la dirección de memoria de la nota a eliminar.
+	emit Cliqueado (this);
+}
+
+#include "Gnota.moc"
