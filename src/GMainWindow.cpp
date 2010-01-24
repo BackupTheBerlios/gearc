@@ -1,4 +1,4 @@
-/// @file nota.cpp Definición de la clase GNota.
+/// @file gearc.cpp Definición de la interfaz gráfica principal.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,26 +20,34 @@
 *******************************************************************************/
 
 
-#include "Gnota.h"
+
+#include <QApplication>
+#include <QMainWindow>
+#include <QValidator>
+#include <QLineEdit>
+
+#include "GMainWindow.h"
+#include "gestor_notas.h"
 
 #include <QDebug>
 
-GNota::GNota (QWidget* parent) : QLineEdit (parent), automatica (true)
+GEARC_MainWindow::GEARC_MainWindow (QWidget* parent) : QMainWindow (parent), Ui::GEARC_MainWindow ()
 {
-	// Asigna el color amarillo a la nota
-	color.setRgb (250, 255, 200);
-	pal.setColor (QPalette::Base, color);
-	setPalette (pal);
+	qDebug() << "Creando interfaz. " << this;
+	// Establece la interfaz gráfica
+	setupUi (this);
 	
-	// Ajusta el tamaño de la nota
-	setSizePolicy (QSizePolicy::Fixed, QSizePolicy::Fixed);
-	setMinimumSize (55, 35);
-	setMaximumSize (55, 35);
+	qDebug() << "Creando Gestor de Notas.";
+	g_notas = new GestorNota (this);
+	
+	layout_central->addWidget (g_notas);
 }
 
 
-GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent), automatica (false)
+GEARC_MainWindow::~GEARC_MainWindow()
 {
-	// Asigna el color normal a la nota
-	setPalette (QPalette());
+	qDebug() << "Destruyendo interfaz. " << this;
 }
+
+
+#include "GMainWindow.moc"

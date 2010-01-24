@@ -35,7 +35,8 @@ GestorNota::~GestorNota ()
 	
 }
 
-void GestorNota::Agregar_nota (void)
+
+void GestorNota::Agregar_Nota ()
 {
 	qDebug () << "\nAgregando nota.";
 	qDebug () << "Size (notas) : " << notas.size ();
@@ -45,8 +46,17 @@ void GestorNota::Agregar_nota (void)
 	qDebug () << "Nueva nota: " << ptr;
 	
 	// Agrega a la lista
-	qDebug () << "Agregando a la lista";
+	qDebug () << "Agregando nota " << ptr << " a la lista.";
 	notas.append (ptr);
+	
+	// Agrega al frame
+	qDebug () << "Agregando nota " << ptr << " al frame.";
+	layout_notas->addWidget (ptr);
+	
+	// Quita el espaciador y lo coloca nuevamente pero al final
+	// no he encontrado otro método para solucionarlo.
+	layout_notas->removeItem (hSpacer_notas);
+	layout_notas->addItem (hSpacer_notas);
 }
 
 
@@ -83,7 +93,6 @@ void GestorNota::Promediar (void)
 {
 	
 }
-
 
 
 #include "gestor_notas.moc"

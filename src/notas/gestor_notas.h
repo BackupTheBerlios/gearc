@@ -33,17 +33,17 @@
 class GestorNota : public QWidget, private Ui::frm_GestorNotas
 {
 	Q_OBJECT
-	
-	private:
-		QList <GNota*> notas;
 		
 	public:
 		GestorNota (QWidget *parent = 0);
 		~GestorNota ();
 		
 	public slots:
-		void Agregar_nota (void);
+		void Agregar_Nota ();
 		void Promediar (void);
+		
+	private:
+		QList <GNota*> notas;
 		
 };
 

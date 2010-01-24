@@ -14,14 +14,14 @@ include_directories (
 # Archivos fuente que serán compilados
 set (GEARC_SRC
 	main.cpp
-	gearc.cpp
+	GMainWindow.cpp
 	notas/Gvalidador.cpp
 	notas/Gnota.cpp
 	notas/gestor_notas.cpp
 )
 
 set (GEARC_UI
-	gearc.ui
+	GMainWindow.ui
 	notas/gestor_notas.ui
 )
 

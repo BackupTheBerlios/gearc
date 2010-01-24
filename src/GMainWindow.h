@@ -23,7 +23,7 @@
 #ifndef GEARC_H
 #define GEARC_H
 
-#include "ui_gearc.h"
+#include "ui_GMainWindow.h"
 
 #include <QMainWindow>
 #include <QList>
@@ -44,9 +44,6 @@ class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
 		GestorNota *g_notas;
 		
 	public slots:
-		void Agregar_nota (void);
-		void Eliminar_nota (void);
-		void Promediar (void);
 };
 
 #endif // GEARC_H
