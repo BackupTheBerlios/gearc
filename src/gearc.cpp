@@ -50,6 +50,10 @@ GEARC_MainWindow::GEARC_MainWindow (QWidget* parent) : QMainWindow (parent), Ui:
 	connect (btn_eliminanota, SIGNAL (clicked()), SLOT (Eliminar_nota()));
 	connect (btn_promediar, SIGNAL (clicked()), SLOT (Promediar()));
 	
+	g_notas = new GestorNota (this);
+	//g_notas->show();
+	
+	layout_notas->addWidget (g_notas);
 }
 
 

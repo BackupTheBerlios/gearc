@@ -28,6 +28,7 @@
 #include <QMainWindow>
 #include <QList>
 
+#include "gestor_notas.h"
 
 
 class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
@@ -40,6 +41,7 @@ class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
 		
 	private:
 		QList <QLineEdit*> notas;
+		GestorNota *g_notas;
 		
 	public slots:
 		void Agregar_nota (void);
