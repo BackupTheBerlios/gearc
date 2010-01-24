@@ -44,6 +44,7 @@ class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
 		GestorNota *g_notas;
 		
 	public slots:
+        void acercaDe();
 };
 
 #endif // GEARC_H

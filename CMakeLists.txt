@@ -4,38 +4,48 @@
 #   Copyright 2009 Daniel L. Contreras Pino <inextremares@users.berlios.de>   #
 #*****************************************************************************#
 
-project (gearc)
-cmake_minimum_required (VERSION 2.6)
+PROJECT (gearc)
 
-find_package (Qt4 REQUIRED)
+SET (GEARC_VERSION "0.0.81 (alfa 1)")
+
+CMAKE_MINIMUM_REQUIRED (VERSION 2.6)
+SET (CMAKE_COLOR_MAKEFILE ON)
+
+FIND_PACKAGE (Qt4 4.4.3 COMPONENTS QtCore QtGui REQUIRED)
 
 # Asigna debugfull por defecto.
-# TODO Quitar al hacer un Release
-set (CMAKE_BUILD_TYPE debugfull)
+IF (NOT CMAKE_BUILD_TYPE)
+    SET (CMAKE_BUILD_TYPE debug)
+    MESSAGE (STATUS "- - - - - - - - - - - - - - - - - - - - -")
+    MESSAGE (STATUS "Tipo de construcción: debug (por defecto)")
+    MESSAGE (STATUS "- - - - - - - - - - - - - - - - - - - - -")
+ENDIF (NOT CMAKE_BUILD_TYPE)
 
-# Asigna los FLAGS de compilación
-if (CMAKE_COMPILER_IS_GNUCXX)
-	set (CMAKE_CXX_FLAGS "-Wall -Wold-style-cast -pedantic -Wno-long-long")
-	set (CMAKE_CXX_FLAGS_DEBUG "-O0 -g -Wunused-macros")
-	set (CMAKE_CXX_FLAGS_DEBUGFULL "-O0 -g3 -fno-inline -Wundef -Wunused-macros")
-	set (CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
-	if (CMAKE_BUILD_TYPE STREQUAL debugfull OR CMAKE_BUILD_TYPE STREQUAL debug)
-		add_definitions (-DDEBUG)
-		
-	else (CMAKE_BUILD_TYPE STREQUAL debugfull OR CMAKE_BUILD_TYPE STREQUAL debug)
-		add_definitions (-DNDEBUG -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT)
-		
-		# Evita que se muestre una consola en Windows
-		# al compilarse en un modo de no depuración.
-		if (WIN32)
-			set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
-		endif (WIN32)
-		
-	endif (CMAKE_BUILD_TYPE STREQUAL debugfull OR CMAKE_BUILD_TYPE STREQUAL debug)
-endif (CMAKE_COMPILER_IS_GNUCXX)
 
 
 # Directorios de inclusión de cabeceras
-include_directories (${QT_INCLUDES})
+INCLUDE_DIRECTORIES (${QT_INCLUDES})
 
-add_subdirectory (src)
+
+# Definición para desinstalar archivos instalados.
+CONFIGURE_FILE (
+	"${CMAKE_CURRENT_SOURCE_DIR}/cmake/cmake_uninstall.cmake.in"
+	"${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+	IMMEDIATE @ONLY
+)
+
+ADD_CUSTOM_TARGET (uninstall
+	"${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+)
+
+IF (NOT CMAKE_INSTALL_PREFIX)
+    SET (CMAKE_INSTALL_PREFIX /usr/local)
+    MESSAGE (STATUS "- - - - - - - - - - - - - - - - - - - - - - -")
+    MESSAGE (STATUS "Ruta de instalación: /usr/local (por defecto)")
+    MESSAGE (STATUS "- - - - - - - - - - - - - - - - - - - - - - -")
+ENDIF (NOT CMAKE_INSTALL_PREFIX)
+
+ADD_DEFINITIONS (-DGEARC_VERSION=\"${GEARC_VERSION}\")
+
+# Subdirectorios
+ADD_SUBDIRECTORY (src)

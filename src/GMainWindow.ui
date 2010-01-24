@@ -20,6 +20,10 @@
   <property name="windowTitle">
    <string notr="true">GEARC</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="recursos/recursos.qrc">
+    <normaloff>:/gearc.png</normaloff>:/gearc.png</iconset>
+  </property>
   <widget class="QWidget" name="widget_central">
    <layout class="QGridLayout" name="layout_central"/>
   </widget>
@@ -29,7 +33,7 @@
      <x>0</x>
      <y>0</y>
      <width>554</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_Archivo">
@@ -37,12 +41,21 @@
      <string>&amp;Gearc</string>
     </property>
     <addaction name="separator"/>
-    <addaction name="Actmenu_Salir"/>
+    <addaction name="actMenuSalir"/>
+   </widget>
+   <widget class="QMenu" name="menu_Ayuda">
+    <property name="title">
+     <string>&amp;Ayuda</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actMenuAbout"/>
+    <addaction name="actMenuAboutQt"/>
    </widget>
    <addaction name="menu_Archivo"/>
+   <addaction name="menu_Ayuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="Actmenu_Salir">
+  <action name="actMenuSalir">
    <property name="text">
     <string>&amp;Salir</string>
    </property>
@@ -50,11 +63,23 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
+  <action name="actMenuAbout">
+   <property name="text">
+    <string>Acerca de...</string>
+   </property>
+  </action>
+  <action name="actMenuAboutQt">
+   <property name="text">
+    <string>Acerca de QT...</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="recursos/recursos.qrc"/>
+ </resources>
  <connections>
   <connection>
-   <sender>Actmenu_Salir</sender>
+   <sender>actMenuSalir</sender>
    <signal>triggered()</signal>
    <receiver>GEARC_MainWindow</receiver>
    <slot>close()</slot>

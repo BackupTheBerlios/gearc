@@ -1,3 +1,14 @@
+GEARC 0.0.81 (alfa 1)  18 noviembre 2009
+------------------------------------------
+
+-GEARC
+  * Las notas pueden agregarse y eliminarse dinámicamente al programa.
+  * Las notas poseen 2 estados: automáticas y manuales.
+  * Botón de autocalcular notas, que autocalcula las notas marcadas como
+    automáticas para llegar al promedio de 4.0.
+
+
+
 GEARC 0.0.1 (desarrollo)  18 octubre 2009
 ------------------------------------------
 

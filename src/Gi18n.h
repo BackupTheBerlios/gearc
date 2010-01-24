@@ -31,18 +31,18 @@
 
 // Inclusiones de gettext
 #ifndef WIN32
-	#include <libintl.h>
-	#include <locale.h>
-	
-	// Definiciones para la localización
-	#define _(String) QString::fromUtf8 (gettext(String))
-	#define gettext_noop(String) String
-	#define N_(String) QString::fromUtf8 (gettext_noop (String))
-	
+#include <libintl.h>
+#include <locale.h>
+
+// Definiciones para la localización
+#define _(String) QString::fromUtf8 (gettext(String))
+#define gettext_noop(String) String
+#define N_(String) QString::fromUtf8 (gettext_noop (String))
+
 #else
-	// Omite la localización en windows
-	#define _(String) QString::fromUtf8 (String)
-	#define N_(String) QString::fromUtf8 (String)
+// Omite la localización en windows
+#define _(String) QString::fromUtf8 (String)
+#define N_(String) QString::fromUtf8 (String)
 #endif
 
 

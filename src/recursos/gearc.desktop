@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=GEARC
+Version=0.0.81
+Type=Application
+Categories=Qt;Education;
+Icon=gearc.png
+Exec=gearc
+StartupNotify=true
+Encoding=UTF-8
+Terminal=false
+Comment=Un administrador de ramos y calificaciones
+Comment[es]=Un administrador de ramos y calificaciones
+Comment[en]=An administrator of asignature and evaluations
+GenericName=Gestor de calificaciones
+GenericName[es]=Gestor de calificaciones
+GenericName[en]=Manager of asignature and evaluations

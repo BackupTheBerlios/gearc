@@ -1,21 +1,80 @@
-Esta versiónde GEARC se encuentra en un estado muy temprano de desarrollo y
-puede ser excesivamente inestable e inusable, si desea usar GEARC le recomendamos
-encarecidamente que espere al menos hasta la primera alfa.
+GEARC 0.0.81
+Copyright (C) 2009
 
-Para programar GEARC se está usando KDevelop 4, QT y cmake. Actualmente está
-siendo programado bajo un sistema GNU/Linux, por tanto el fin de linea corresponde
-con el de dicho sistema y la codificación de texto es UTF-8.
+Desarrolladores:
+2009 Daniel L. Contreras Pino <inextremares.users.berlios.de>
 
-Se necesita como mínimo CMake (2.6) y QT (4.3).
-
-Se ha probado la compilación sobre Windows XP usando MinGW 4 y MSys 1.0; aunque aun
-no se garantiza completamente su funcionamiento. Las utilidades de GNU GetText
-fallaban al momento de compilar por tanto se ha deshabilitado en entornos Windows.
+http://developer.berlios.de/projects/gearc
+http://gearc.berlios.de/blog
 
 
-GEARC se desarrolla actualmente por: Daniel L. Contreras P. <inextremares@users.berlios.de>
+                               Introducción:
+                            -------------------
 
-Página de proyecto en BerliOS: http://developer.berlios.de/projects/gearc
+ GEARC busca ser un programa que ayude principalmente a estudiantes que quieran
+llevar un registro de sus calificaciones y de los ramos que van cursando.
+ El desarrollo de este programa se realiza actualmente por Daniel Contreras P,
+estudiante de Licenciatura en Ciencias de la Computación en la Universidad de
+Santiago de Chile.
 
 
-Muchas gracias por estar interesado en GEARC.
+                                Requisitos:
+                            -------------------
+
+  - Las librerias QT en versión igual o mayor a la 4.4
+  - Cmake en versión igual o mayor a la 2.6
+  
+
+                         Compilación e instalación:
+                     ----------------------------------
+
+ Para compilar GEARC debe:
+ 
+ - Crear un nuevo directorio (por ejemplo: build):
+     mkdir -p build
+     
+ - Situarse en ese directorio:
+     cd build
+     
+ - Lanzar cmake:
+     cmake ../
+     
+ - Compilar el programa:
+     make
+     
+ - Instalar el programa (como root de ser neceario):
+     sudo make install
+     
+
+
+                            Opciones de compilación:
+                         -------------------------------
+
+ Puede pasarle opciones a cmake para modificar algunas de las opciones de
+compilación.
+
+ - Para definir el tipo de compilación se establece el siguiente parámetro
+   donde <tipo> puede ser: release, debug, debugfull. De no especificarse
+   este parámetro se elige debug por defecto. Para la mayoría de los usuarios
+   se recomienda elegir: release.
+   
+     -DCMAKE_BUILD_TYPE=<tipo>
+     
+     
+ - Para definir la ruta de instalación se establece el siguiente parámetro
+   donde <ruta> es la ruta en el sistema donde se instalará el programa al
+   momento de hacer: 'make install'. De no especificarse se usará la ruta
+   /usr/local  por defecto. Para la mayoría de los usuarios se recomienda
+   elegir la ruta: /usr .
+   
+     -DCMAKE_INSTALL_PREFIX=<ruta>
+     
+     
+ Así la secuencia de instalación quedaría:
+ 
+      mkdir -p build
+      cd build
+      cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=/usr ../
+      make
+      sudo make install
+      
