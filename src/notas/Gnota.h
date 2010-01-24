@@ -34,12 +34,7 @@ class GNota : public QLineEdit
 		GNota (QWidget* parent = 0);
 		GNota (double valor, QWidget *parent = 0);
 		
-		QPushButton *btnEliminar;
-		
-		bool isAuto () const
-		{
-			return automatica;
-		}
+		bool isAuto () const {return automatica;}
 		
 	private slots:
 		void on_btnEliminar_clicked ();
@@ -48,6 +43,8 @@ class GNota : public QLineEdit
 		void Eliminar (GNota *objeto);
 		
 	private:
+		QPushButton *btnEliminar;
+		
 		QColor color;
 		QPalette pal;
 		bool automatica;

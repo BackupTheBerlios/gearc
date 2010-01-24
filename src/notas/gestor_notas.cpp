@@ -62,7 +62,7 @@ void GestorNota::Agregar_Nota ()
 	
 	connect (ptr, SIGNAL (returnPressed()), this, SLOT (Promediar()));
 	connect (ptr , SIGNAL (Eliminar(GNota*)), this, SLOT (Eliminar_Nota (GNota*)));
-	connect (ptr, SIGNAL (textChanged (QString)), this, SLOT (Promediar (QString)));
+	connect (ptr, SIGNAL (textChanged (QString)), this, SLOT (ActualizarNota (QString)));
 }
 
 
@@ -89,17 +89,10 @@ void GestorNota::Promediar ()
 }
 
 
-void GestorNota::Promediar (const QString &texto)
+void GestorNota::ActualizarNota (const QString &texto)
 {
 	Promediar ();
 }
-
-
-void GestorNota::MostrarBoton (GNota* nota, bool mostrar)
-{
-	nota->btnEliminar->setVisible (mostrar);
-}
-
 
 
 void GestorNota::Eliminar_Nota (GNota* nota)
