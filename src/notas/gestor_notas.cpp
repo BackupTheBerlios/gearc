@@ -1,4 +1,4 @@
-/// @file main.cpp Archivo inicial.
+/// @file gestor_nota.cpp Definición de la clase GestorNota para manejar notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,26 +20,70 @@
 *******************************************************************************/
 
 
-#include <QApplication>
+#include "gestor_notas.h"
+
 #include <QDebug>
 
-#include "gearc.h"
-#include "Gi18n.h"
-
-int main(int argc, char **argv)
+GestorNota::GestorNota (QWidget* parent) : QWidget (parent)
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
-	
-    QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
-	qDebug() << "Creada ventana principal. " << principal;
-	principal->show ();
-	
-    return gearc.exec ();
 	
 }
+
+
+GestorNota::~GestorNota ()
+{
+	
+}
+
+void GestorNota::Agregar_nota (void)
+{
+	qDebug () << "\nAgregando nota.";
+	qDebug () << "Size (notas) : " << notas.size ();
+	
+	// Crea una nueva nota
+	GNota *ptr = new GNota (this);
+	qDebug () << "Nueva nota: " << ptr;
+	
+	// Agrega a la lista
+	qDebug () << "Agregando a la lista";
+	notas.append (ptr);
+}
+
+
+/*
+void GestorNota::Eliminar_nota (void)
+{
+	qDebug () << "\nEliminando nota.";
+	qDebug () << "Size (notas) : " << notas.size ();
+	
+	// Hace al widget de la nota invisible.
+	qDebug () << "Invisibilizando widget";
+	notas[notas.size() - 1]->setVisible (false);
+	
+	// Devuelve la última nota de la lista.
+	GNota *ptr = notas.last ();
+	qDebug () << "Nota a eliminar: " << ptr;
+	
+	Q_ASSERT (ptr == notas[notas.size() - 1]);
+	
+	// Elimina dicha nota de la lista.
+	qDebug () << "Quitando de la lista";
+	notas.removeOne (ptr);
+	
+	// Destruye el objeto
+	qDebug () << "Eliminando objeto" << ptr;
+	bool elim = ptr->close ();
+	qDebug () << "Eliminado?: " << elim;
+	
+	qDebug () << "Size (notas) : " << notas.size ();
+}
+*/
+
+void GestorNota::Promediar (void)
+{
+	
+}
+
+
+
+#include "gestor_notas.moc"

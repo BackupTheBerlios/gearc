@@ -20,7 +20,14 @@
 *******************************************************************************/
 
 
+
+#include <QApplication>
+#include <QMainWindow>
+#include <QValidator>
+#include <QLineEdit>
+
 #include "gearc.h"
+#include "gestor_notas.h"
 
 #include <QDebug>
 
@@ -35,6 +42,7 @@ GEARC_MainWindow::GEARC_MainWindow (QWidget* parent) : QMainWindow (parent), Ui:
 	btn_eliminanota->setEnabled (false);
 	btn_calcular->setEnabled (false);
 	btn_promediar->setEnabled (false);
+	
 	
 	// Señales y Slots
 	connect (menu_Salir, SIGNAL (triggered()), this, SLOT (close()));
@@ -60,6 +68,12 @@ void GEARC_MainWindow::Agregar_nota (void)
 	QLineEdit *ptr = new QLineEdit (frame_notas);
 	qDebug () << "Nueva nota: " << ptr;
 	
+	// Setea el color de fondo
+	QPalette pal;
+	pal.setColor (QPalette::Base, Qt::yellow);
+	ptr->setPalette (pal);
+	
+	// Agrega a la lista
 	qDebug () << "Agregando a la lista";
 	notas.append (ptr);
 	

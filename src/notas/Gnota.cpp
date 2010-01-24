@@ -1,4 +1,4 @@
-/// @file main.cpp Archivo inicial.
+/// @file nota.cpp Definición de la clase GNota.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,26 +20,21 @@
 *******************************************************************************/
 
 
-#include <QApplication>
+#include "Gnota.h"
+
 #include <QDebug>
 
-#include "gearc.h"
-#include "Gi18n.h"
-
-int main(int argc, char **argv)
+GNota::GNota (QWidget* parent) : QLineEdit (parent), automatica (true)
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
-	
-    QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
-	qDebug() << "Creada ventana principal. " << principal;
-	principal->show ();
-	
-    return gearc.exec ();
-	
+	// Asigna el color amarillo a la nota
+	color.setRgb (180, 180, 0);
+	pal.setColor (QPalette::Base, color);
+	setPalette (pal);
+}
+
+
+GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent), automatica (false)
+{
+	// Asigna el color normal a la nota
+	setPalette (QPalette());
 }

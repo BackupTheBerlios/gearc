@@ -1,4 +1,4 @@
-/// @file main.cpp Archivo inicial.
+/// @file gestor_notas.h Declaración de la clase GestorNota para manejar notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,26 +20,31 @@
 *******************************************************************************/
 
 
-#include <QApplication>
-#include <QDebug>
+#ifndef GESTOR_NOTA_H
+#define GESTOR_NOTA_H
 
-#include "gearc.h"
-#include "Gi18n.h"
+#include "Gnota.h"
 
-int main(int argc, char **argv)
+#include "ui_gestor_notas.h"
+
+#include <QList>
+#include <QWidget>
+
+class GestorNota : public QWidget, private Ui::frm_GestorNotas
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
+	Q_OBJECT
 	
-    QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
-	qDebug() << "Creada ventana principal. " << principal;
-	principal->show ();
-	
-    return gearc.exec ();
-	
-}
+	private:
+		QList <GNota*> notas;
+		
+	public:
+		GestorNota (QWidget *parent = 0);
+		~GestorNota ();
+		
+	public slots:
+		void Agregar_nota (void);
+		void Promediar (void);
+		
+};
+
+#endif // GESTOR_NOTA_H

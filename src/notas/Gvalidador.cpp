@@ -1,4 +1,4 @@
-/// @file main.cpp Archivo inicial.
+/// @file Gvalidador.cpp Definición de la clase GValidador para las Notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -20,26 +20,25 @@
 *******************************************************************************/
 
 
-#include <QApplication>
-#include <QDebug>
+#include "Gvalidador.h"
 
-#include "gearc.h"
-#include "Gi18n.h"
 
-int main(int argc, char **argv)
+GValidador::GValidador (double bottom, double top, int decimals, QObject* parent) 
+: QDoubleValidator (bottom, top, decimals, parent)
 {
-	#ifndef WIN32
-	// Localización
-	setlocale(LC_ALL,"");
-	bindtextdomain("gearc", "locale");
-	textdomain("gearc");
-	#endif
 	
-    QApplication gearc (argc, argv);
-	GEARC_MainWindow *principal = new GEARC_MainWindow ();
-	qDebug() << "Creada ventana principal. " << principal;
-	principal->show ();
+}
+
+
+QValidator::State GValidador::validate (QString& input, int& pos) const
+{
+	if (input.isEmpty() || input == "." || input == ",")
+		return Intermediate;
 	
-    return gearc.exec ();
+	if (QDoubleValidator::validate (input, pos) != Acceptable)
+	{
+		return Invalid;
+	}
 	
+    return Acceptable;
 }

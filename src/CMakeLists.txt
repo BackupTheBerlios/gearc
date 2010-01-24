@@ -1,21 +1,28 @@
 #*****************************************************************************#
-# GEARC. Gestor y administrador de ramos y calificaciones.                    #
+#         GEARC. Gestor y administrador de ramos y calificaciones.            #
 #                                                                             #
 #   Copyright 2009 Daniel L. Contreras Pino <inextremares@users.berlios.de>   #
 #*****************************************************************************#
 
 
 # Directorios de inclusión de cabeceras
-include_directories (${CMAKE_CURRENT_BINARY_DIR})
+include_directories (
+	${CMAKE_CURRENT_BINARY_DIR}
+	notas
+)
 
 # Archivos fuente que serán compilados
 set (GEARC_SRC
 	main.cpp
 	gearc.cpp
+	notas/Gvalidador.cpp
+	notas/Gnota.cpp
+	notas/gestor_notas.cpp
 )
 
 set (GEARC_UI
 	gearc.ui
+	notas/gestor_notas.ui
 )
 
 qt4_automoc (${GEARC_SRC})
