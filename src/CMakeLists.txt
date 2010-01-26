@@ -6,33 +6,39 @@
 
 # Asigna los FLAGS de compilación para compiladores GNU C++
 IF (CMAKE_COMPILER_IS_GNUCXX)
+    # -----------------------------------------------------------------------------------
+    # NOTA: Se está usando el estándar ANSI C++ 0x . Esto es SOLO con razones de PRUEBA  |
+    #       y no tiene ninguna razón de uso en especial. Si algo anda mal lo mejor       |
+    #       es quitarlo y colocar 'Wno-long-long' si se desean omitir las advertencias   |
+    #       de tipos 'long long' en las librerias Qt.                                    |
+    # -----------------------------------------------------------------------------------
     # FLAGS comunes a todos los modos
-	SET (CMAKE_CXX_FLAGS "-Wall -Wold-style-cast -pedantic -ansi -std=c++0x")
-	
-	# FLAGS para modo de depuración
-	SET (CMAKE_CXX_FLAGS_DEBUG "-O0 -g3 -Wunused-macros -Wundef")
+    SET (CMAKE_CXX_FLAGS "-Wall -Wold-style-cast -pedantic -ansi -std=c++0x")
+
+    # FLAGS para modo de depuración
+    SET (CMAKE_CXX_FLAGS_DEBUG "-O0 -g3 -Wunused-macros -Wundef -fno-inline")
     
     # FLAGS para modo release con información de depuración
-	SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -Wundef -Wunused-macros")
-	
-	# FLAGS para modo de tamaño pequeño
-	SET (CMAKE_CXX_FLAGS_MINSIZEREL "-Os -g0 fno-inline")
-	
-	# FLAGS para modo release
-	SET (CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
-	
-	IF (CMAKE_BUILD_TYPE STREQUAL debug OR CMAKE_BUILD_TYPE STREQUAL relwithdebinfo)
-		ADD_DEFINITIONS (-DDEBUG)
-		
+    SET (CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -Wundef -Wunused-macros")
+    
+    # FLAGS para modo de tamaño pequeño
+    SET (CMAKE_CXX_FLAGS_MINSIZEREL "-Os -g0 -fno-inline")
+    
+    # FLAGS para modo release
+    SET (CMAKE_CXX_FLAGS_RELEASE "-O2 -g0")
+    
+    IF (CMAKE_BUILD_TYPE STREQUAL debug OR CMAKE_BUILD_TYPE STREQUAL relwithdebinfo)
+        ADD_DEFINITIONS (-DDEBUG)
+        
     ELSE (CMAKE_BUILD_TYPE STREQUAL debug OR CMAKE_BUILD_TYPE STREQUAL relwithdebinfo)
-		ADD_DEFINITIONS (-DNDEBUG -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT)
-		
-		# Evita que se muestre una consola en Windows
-		# al compilarse en un modo de no depuración.
-		IF (WIN32)
-			SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
-		ENDIF (WIN32)
-		
+        ADD_DEFINITIONS (-DNDEBUG -DQT_NO_DEBUG_OUTPUT -DQT_NO_WARNING_OUTPUT)
+        
+        # Evita que se muestre una consola en Windows
+        # al compilarse en un modo de no depuración.
+        IF (WIN32)
+            SET (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
+        ENDIF (WIN32)
+        
     ENDIF (CMAKE_BUILD_TYPE STREQUAL debug OR CMAKE_BUILD_TYPE STREQUAL relwithdebinfo)
 ENDIF (CMAKE_COMPILER_IS_GNUCXX)
 

@@ -43,7 +43,7 @@ Santiago de Chile.
      make
      
  - Instalar el programa (como root de ser neceario):
-     sudo make install
+     make install
      
 
 
@@ -54,9 +54,9 @@ Santiago de Chile.
 compilación.
 
  - Para definir el tipo de compilación se establece el siguiente parámetro
-   donde <tipo> puede ser: release, debug, debugfull. De no especificarse
-   este parámetro se elige debug por defecto. Para la mayoría de los usuarios
-   se recomienda elegir: release.
+   donde <tipo> puede ser: release, debug, relwithinfodeb. De no especificarse
+   este parámetro se elige relwithinfodeb por defecto. Para la mayoría de los
+   usuarios se recomienda elegir: release.
    
      -DCMAKE_BUILD_TYPE=<tipo>
      
@@ -76,5 +76,5 @@ compilación.
       cd build
       cmake -DCMAKE_BUILD_TYPE=release -DCMAKE_INSTALL_PREFIX=/usr ../
       make
-      sudo make install
+      make install
       
