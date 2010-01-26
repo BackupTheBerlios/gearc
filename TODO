@@ -1,1 +1,39 @@
-TODO
+#                                    LISTA DE TAREAS PENDIENTES
+#                               ------------------------------------
+#
+# Esta lista difiere de las tareas pendientes encontradas en la documentación de la API.
+# Aquí aparecen las tareas pendientes a nivel general.
+#
+# La lista de tareas pendientes no está ordenada bajo ningún criterio, aunque se recomienda
+# que las tareas de temátias similares queden juntas.
+#
+#
+#    -  : Tarea pendiente no realizada.
+#    *  : Tarea pendiente en curso.
+#    -- : Tarea pendiente creada como consecuencia de otra.
+#
+# Cuando una tarea es finalizada, se borra la entrada de este archivo.
+#
+# Se recomienda a cada desarrollador tener un archivo '~TODO~' donde guardar una lista de sus
+# tareas pendientes personales. Este archivo no se incluriá en el repositorio (esto conlleva
+# a que pueda perderse de forma accidental).
+#
+
+
+- Permitir que los ramos (asignaturas) se puedan agregar, borrar y editar fácilmente.
+- La información de los ramos debe ser consistente.
+
+- Almacenar tanto los ramos como sus datos al disco para que puedan recuperarse.
+
+- Implementar sistema de configuraciones para poder guardar y restaurar la configuración del programa.
+
+- Pulir el uso de GetText para permitir que GEARC pueda ser traducido correctamente.
+- Aplicar reglas en archivos CMakeLists.txt para que las traducciones disponibles se instalen correctamente.
+
+- Realizar documentación para usuario.
+
+- Reimplementar el sistema de calificaciones para permitir calificaciones de distintos tipos dentro de un ramo.
+
+- Rehacer el cuadro 'Acerca de...'
+
+- Crear scrpit que reformatee el código fuente usando 'scripts/codingstyle.sh' antes de hacer un commit.
