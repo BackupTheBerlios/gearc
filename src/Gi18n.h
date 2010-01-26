@@ -74,16 +74,6 @@ inline QString _ (const char *cadena, int a = 0)
 #endif // USE_GETTEXT
 }
 
-/**
- * Esta función es usada con textos que no deben traducirse.
- * \deprecated Posiblemente esta función no sea necesaria y pronto será eliminada.
-*/
-inline QString N_ (const char *cadena, int a = 0)
-{
-    return cadena;
-}
-
-
 // Declaración de funciones -----
 
 /**

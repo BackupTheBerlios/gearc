@@ -64,7 +64,7 @@ GEARC_MainWindow::GEARC_MainWindow (QWidget* parent) : QMainWindow (parent), Ui:
     
     connect (actNuevoRamo, SIGNAL (triggered () ), this, SLOT (agregarRamo () ) );
     
-    connect (treeRamos, SIGNAL (itemClicked (QTreeWidgetItem*, int)), this, SLOT (itemApretado(QTreeWidgetItem*,int)));
+    connect (treeRamos, SIGNAL (itemClicked (QTreeWidgetItem*, int) ), this, SLOT (itemApretado (QTreeWidgetItem*, int) ) );
 }
 
 
@@ -87,17 +87,17 @@ void GEARC_MainWindow::showAcercaDe()
     
     QString texto = QString ("<h2>GEARC %1 </h2>").arg (GEARC_VERSION);
     
-    texto += N_ ("Copyright &copy; 2009 Daniel L. Contreras P.");
+    texto += "Copyright &copy; 2009 Daniel L. Contreras P.";
     texto += _ ("<br>Liberado bajo los términos de la Licencia Pública General de GNU versión 3 (GPLv3).");
     texto += _ ("<p>GEARC es un administrador de ramos y calificaciones.\
             Permite promediar y autocalcular calificaciones.\
             Aun se encuentra en un estado muy prematuro pero ira creciendo poco a poco.\
             Para más información visite: ");
 
-    texto += QString (N_ ("<a href=%1>%2</a>") ).arg (web).arg (web);
+    texto += QString ("<a href=%1>%2</a>").arg (web).arg (web);
     
     web = "http://www.gnu.org/licenses";
-    gnuWeb = QString (N_ ("<a href=%1>%2</a>") ).arg (web).arg (web);
+    gnuWeb = QString ("<a href=%1>%2</a>").arg (web).arg (web);
     
     texto += QString (_ ("<p>Este programa se ofrece SIN GARANTÍA ALGUNA; es software libre y usted puede\
             redistribuirlo bajo ciertas condiciones. Usted debió haber recibido una copia de la licencia\
@@ -144,7 +144,7 @@ void GEARC_MainWindow::agregarRamo()
     itemsRamos.append (new QTreeWidgetItem (treeRamos, datos) );
 }
 
-void GEARC_MainWindow::itemApretado(QTreeWidgetItem* item, int column)
+void GEARC_MainWindow::itemApretado (QTreeWidgetItem* item, int column)
 {
     qDebug() << endl;
     qDebug() << "El item presionado fue: " << item;
