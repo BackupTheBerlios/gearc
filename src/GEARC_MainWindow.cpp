@@ -52,19 +52,24 @@ GEARC_MainWindow::GEARC_MainWindow (QWidget* parent) : QMainWindow (parent), Ui:
     qDebug() << "Creando Gestor de Notas.";
     gestorNotas = new GestorNota (this);
     
-    //layout_central->addWidget( gestorNotas );
-    //setWindowIcon (QPixmap(":/gearc.png"));
     layoutNotas->addWidget (gestorNotas);
-    frmNotas->resize (20, 20);
-    gestorNotas->resize (20, 20);
+    
+    listaRamos = new GListaRamos (lstRamos);
+    
     connect (actAboutQt, SIGNAL (triggered () ), qApp, SLOT (aboutQt () ) );
     connect (actAbout, SIGNAL (triggered () ), this, SLOT (showAcercaDe () ) );
-    
-    listaRamos = new GListaRamos ();
-    
     connect (actNuevoRamo, SIGNAL (triggered () ), this, SLOT (agregarRamo () ) );
+    connect (lstRamos, SIGNAL (itemActivated (QListWidgetItem*) ),
+             this, SLOT (actualizarDatosRamo (QListWidgetItem*) ) );
+             
+    /*---------------------
+       Configuraciones ¿?
+       --------------------*/
+    frmNotas->resize (20, 20);
+    gestorNotas->resize (20, 20);
     
-    connect (treeRamos, SIGNAL (itemClicked (QTreeWidgetItem*, int) ), this, SLOT (itemApretado (QTreeWidgetItem*, int) ) );
+    lstRamos->setSortingEnabled (true);
+    lstRamos->setAlternatingRowColors (true);
 }
 
 
@@ -138,18 +143,14 @@ void GEARC_MainWindow::agregarRamo()
         return;
         
     listaRamos->agregarRamo (nombreRamo, nombreProfesor);
-    QStringList datos;
-    datos << nombreRamo << nombreProfesor;
-    
-    itemsRamos.append (new QTreeWidgetItem (treeRamos, datos) );
 }
 
-void GEARC_MainWindow::itemApretado (QTreeWidgetItem* item, int column)
+void GEARC_MainWindow::actualizarDatosRamo (QListWidgetItem *item)
 {
-    qDebug() << endl;
     qDebug() << "El item presionado fue: " << item;
-    qDebug() << "En la columna: " << column;
-    qDebug() << endl;
+    
+    lneNombre->setText (listaRamos->nombreRamo ( (GRamo*) item) );
+    lneNombreProfesor->setText (listaRamos->nombreProfesorRamo ( (GRamo*) item) );
 }
 
 

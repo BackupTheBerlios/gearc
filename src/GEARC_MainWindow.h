@@ -59,13 +59,15 @@ public slots:
 
     void showAcercaDe ();
     void agregarRamo ();
-    void itemApretado (QTreeWidgetItem *item, int column);
+    
+private slots:
+
+    void actualizarDatosRamo (QListWidgetItem *item);
     
 private:
 
-    GestorNota *gestorNotas; /**< Ventana que manipula las notas, se empotra en la ventana principal. */
-    GListaRamos *listaRamos; /**< Mantiene en memoria la lista de ramos. */
-    QList<QTreeWidgetItem *> itemsRamos;
+    GestorNota *gestorNotas; /**< Ventana que manipula las notas, empotrada en GEARC_MainWindow.*/
+    GListaRamos *listaRamos; /**< Mantiene en memoria la lista de ramos.*/
 };
 
 #endif // GMAINWINDOW_H

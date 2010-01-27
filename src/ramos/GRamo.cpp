@@ -22,13 +22,18 @@
 #include "GRamo.h"
 
 
-GRamo::GRamo()
+GRamo::GRamo (const QString& nombre, const QString& nombreProfesor, QListWidget* parent, int type)
+        : QListWidgetItem (nombre, parent, type),
+        m_Nombre (nombre),
+        m_NombreProfesor (nombreProfesor)
 {
-
+    // Nada :)
 }
+
 
 /** Destructor de GRamo. */
 GRamo::~GRamo()
 {
-
+    // Nada aun :)
 }
+

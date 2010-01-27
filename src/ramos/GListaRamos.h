@@ -33,13 +33,19 @@ typedef QList<GRamo*> ListaGRamo;
 class GListaRamos
 {
 public:
-    GListaRamos ();
+    GListaRamos (QListWidget *parent = 0);
     ~GListaRamos ();
     
     void agregarRamo (QString nombre, QString nombreProfesor);
     
+    inline QListWidget *parent() const;
+    
+    QString nombreRamo (GRamo *ramo) const;
+    QString nombreProfesorRamo (GRamo *ramo) const;
+    
 private:
     ListaGRamo listaRamos;
+    QListWidget *m_parent;
 };
 
 #endif // GLISTARAMOS_H

@@ -25,26 +25,38 @@
 #include <QtCore/QDebug>
 
 
-GListaRamos::GListaRamos()
+GListaRamos::GListaRamos (QListWidget* parent) : m_parent (parent)
 {
 
 }
 
+
 GListaRamos::~GListaRamos()
 {
-    while (!listaRamos.isEmpty() )
-    {
-        qDebug() << "Removiendo el GRamo " << listaRamos.last();
-        delete listaRamos.last();
-        listaRamos.removeLast();
-    }
+    qDeleteAll (listaRamos);
 }
 
 void GListaRamos::agregarRamo (QString nombre, QString nombreProfesor)
 {
-    listaRamos.append (new GRamo() );
+    Q_ASSERT (m_parent != NULL);
+    
+    listaRamos.append (new GRamo (nombre, nombreProfesor, m_parent) );
+    
     qDebug() << "Insertado el GRamo " << listaRamos.last();
     qDebug() << "Size (listaRamos): " << listaRamos.size();
 }
 
+QListWidget* GListaRamos::parent() const
+{
+    return m_parent;
+}
 
+QString GListaRamos::nombreRamo (GRamo* ramo) const
+{
+    return listaRamos[listaRamos.indexOf (ramo) ]->nombre();
+}
+
+QString GListaRamos::nombreProfesorRamo (GRamo* ramo) const
+{
+    return listaRamos[listaRamos.indexOf (ramo) ]->nombreProfesor();
+}

@@ -22,6 +22,7 @@
 #ifndef GRAMO_H
 #define GRAMO_H
 
+#include <QtGui/QListWidgetItem>
 #include <QtCore/QString>
 
 /**
@@ -31,13 +32,14 @@
  *
 */
 
-class GRamo
+class GRamo : public QListWidgetItem
 {
 public:
 
     /** Constructor por defecto de GRamo. */
-    GRamo();
-    
+    GRamo (const QString &nombre, const QString &nombreProfesor,
+           QListWidget *parent = 0, int type = Type);
+           
     /** Destructor de GRamo. */
     ~GRamo();
     

@@ -19,35 +19,25 @@
     <normaloff>:/gearc.png</normaloff>:/gearc.png</iconset>
   </property>
   <widget class="QWidget" name="wdgtCentral">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
      <widget class="QSplitter" name="splitter_2">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <property name="childrenCollapsible">
-       <bool>false</bool>
-      </property>
-      <widget class="QTreeWidget" name="treeRamos">
-       <property name="whatsThis">
-        <string>Muestra la lista de asignaturas.</string>
+      <widget class="QGroupBox" name="groupBox">
+       <property name="title">
+        <string>Lista de ramos</string>
        </property>
-       <property name="sortingEnabled">
-        <bool>true</bool>
-       </property>
-       <property name="animated">
-        <bool>true</bool>
-       </property>
-       <column>
-        <property name="text">
-         <string>Asignaturas</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Profesor</string>
-        </property>
-       </column>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QListWidget" name="lstRamos">
+          <property name="whatsThis">
+           <string>Muestra la lista de asignaturas.</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
       <widget class="QSplitter" name="splitter">
        <property name="orientation">
@@ -129,7 +119,7 @@
      <x>0</x>
      <y>0</y>
      <width>799</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="mnuGearc">
