@@ -149,8 +149,8 @@ void GEARC_MainWindow::actualizarDatosRamo (QListWidgetItem *item)
 {
     qDebug() << "El item presionado fue: " << item;
     
-    lneNombre->setText (listaRamos->nombreRamo ( (GRamo*) item) );
-    lneNombreProfesor->setText (listaRamos->nombreProfesorRamo ( (GRamo*) item) );
+    lneNombre->setText (listaRamos->nombreRamo (static_cast<GRamo*> (item) ) );
+    lneNombreProfesor->setText (listaRamos->nombreProfesorRamo (static_cast<GRamo*> (item) ) );
 }
 
 
