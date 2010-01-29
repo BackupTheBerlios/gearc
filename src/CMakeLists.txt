@@ -48,29 +48,30 @@ INCLUDE_DIRECTORIES (${CMAKE_CURRENT_BINARY_DIR})
 
 
 # Lista de archivos de código fuente
-FILE (GLOB_RECURSE GEARC_SRC *.cpp)
-#SET (GEARC_SRC
-#    main.cpp
-#    Gi18n.cpp
-#    GMainWindow.cpp
-#    notas/Gnota.cpp
-#    notas/GNotasWindow.cpp
-#    ramos/GRamo.cpp
-#)
+#FILE (GLOB_RECURSE GEARC_SRC *.cpp)
+SET (GEARC_SRC
+    main.cpp
+    Gi18n.cpp
+    GEARC_MainWindow.cpp
+    notas/Gnota.cpp
+    notas/GNotasWindow.cpp
+    ramos/GRamo.cpp
+    ramos/GListaRamos.cpp
+)
 
 # Lista de archivos de formularios QT
-FILE (GLOB_RECURSE GEARC_UI *.ui)
-#SET (GEARC_UI
-#    GMainWindow.ui
-#    notas/GNotasWindow.ui
-#)
+#FILE (GLOB_RECURSE GEARC_UI *.ui)
+SET (GEARC_UI
+    GEARC_MainWindow.ui
+    notas/GNotasWindow.ui
+)
 
 
 # Lista de archivos de recursos
-FILE (GLOB_RECURSE GEARC_RSC *.qrc)
-#SET (GEARC_RSC
-#    recursos/recursos.qrc
-#)
+#FILE (GLOB_RECURSE GEARC_RSC *.qrc)
+SET (GEARC_RSC
+    recursos/recursos.qrc
+)
 
 # Genera los archivos de QT (Recursos, MOC, UI)
 QT4_ADD_RESOURCES (RCC_SRC ${GEARC_RSC})
