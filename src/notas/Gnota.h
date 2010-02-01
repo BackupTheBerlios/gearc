@@ -26,7 +26,16 @@
 #include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
 
-
+/**
+ * \class GNota
+ * \brief Widget que representa una nota para GEARC.
+ *
+ * Hereda de QLineEdit. Básicamente es la caja de texto que se muestra en la caja de notas.
+ * Mantiene el valor de la nota y su propiedad \em automática. Posee un pequeño botón
+ * en la esquina inferior derecha que permite eliminar la nota.
+ *
+ * \todo Rehacer esta clase y permitir notas de distintos tipos.
+*/
 class GNota : public QLineEdit
 {
     Q_OBJECT
@@ -49,11 +58,11 @@ signals:
     
     
 private:
-    QPushButton *btnEliminar;
+    QPushButton *btnEliminar; /**< Botón que permite eliminar la GNota. */
     
-    QColor color;
-    QPalette pal;
-    bool automatica;
+    QColor color; /**< Almacena el color de la nota según su propiedad \em automática. */
+    QPalette pal; /**< Paleta Qt para la Gnota */
+    bool automatica; /**< Guarda la propiedad \em automática de la GNota. */
 };
 
 #endif // CALIFICACION_H

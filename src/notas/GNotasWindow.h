@@ -31,6 +31,14 @@
 #include <QtGui/QWidget>
 #include <QtCore/QList>
 
+/**
+ * \class GestorNota
+ * \brief El widget que maneja las calificaciones en la ventana principal.
+ * 
+ * Este widget se "empotra" en la ventan principal. Posee un espacio de visualización
+ * para las GNota y los botones necesarios. Se implementa de esta forma para permitir
+ * su uso como una ventana separada de la ventana principal de GEARC, de ser necesario.
+*/
 
 class GestorNota : public QWidget, private Ui::wdgtNotas
 {
@@ -44,12 +52,6 @@ public slots:
     void agregarNota ();
     float calcularPromedio ();
     void promediar ();
-    /**
-     * Autocalcula todas las notas marcadas como automáticas para lograr el
-     * promedio definido.
-     * \bug Falla cuando se presiona el botón <b> Autocalcular Notas</b> y
-     * no hay notas. Desactivar el botón en esos casos es una solución.
-     */
     void calcularNotas ();
     void actualizarNota (const QString& texto, GNota *nota);
     void eliminarNota (GNota *nota);

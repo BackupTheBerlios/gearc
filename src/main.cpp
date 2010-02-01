@@ -53,7 +53,6 @@ int main (int argc, char **argv)
     qDebug() << "Seleccionando UTF-8 como codificación por defecto.";
     qDebug() << endl;
     
-    //GEARC_MainWindow *principal = new GEARC_MainWindow ();
     GEARC_MainWindow principal;
     
     qDebug() << "Creada ventana principal. " << &principal;
@@ -63,8 +62,6 @@ int main (int argc, char **argv)
     int run = gearc.exec ();
     
     qDebug() << endl << "Cerrando GEARC";
-    
-    //delete principal;
     
     return run;
 }

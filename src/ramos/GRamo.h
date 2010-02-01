@@ -28,19 +28,18 @@
 /**
  * \class GRamo
  * \brief Representa un ramo o asignatura en GEARC.
- *
- *
+ * 
+ * Almacena la información como el nombre del ramo y el nombre del profesor.
+ * También almacena las notas que posee este ramo.
 */
 
 class GRamo : public QListWidgetItem
 {
 public:
-
-    /** Constructor por defecto de GRamo. */
+    
     GRamo (const QString &nombre, const QString &nombreProfesor,
            QListWidget *parent = 0, int type = Type);
            
-    /** Destructor de GRamo. */
     ~GRamo();
     
     /**

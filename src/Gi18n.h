@@ -1,3 +1,4 @@
+/// \file Gi18n.h Declaraciones para internacionalización con \ref gettext "GNU GetText".
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
 *                                                                             *
@@ -18,7 +19,6 @@
 *******************************************************************************/
 /**
 * \file Gi18n.h
-* \brief Declaraciones para internacionalización con \ref gettext "GNU GetText".
 *
 * Contiene macros y funciones necesarias para usar GetText y permitir
 * la internacionalización de GEARC. La mayoría de estas funciones
@@ -67,7 +67,6 @@
 inline QString _ (const char *cadena, int a = 0)
 {
 #ifdef USE_GETTEXT
-    //return QString::fromUtf8 (gettext (cadena) );
     return gettext (cadena);
 #else
     return cadena;

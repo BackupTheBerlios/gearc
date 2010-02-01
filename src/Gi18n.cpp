@@ -32,7 +32,7 @@ bool asignarIdioma ()
     textdomain ("gearc");
     qDebug() << endl;
     return true;
-#else
+#else // USE_GETTEXT
     return false;
 #endif // USE_GETTEXT
 }

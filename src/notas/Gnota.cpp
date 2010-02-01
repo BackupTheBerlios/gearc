@@ -25,7 +25,7 @@
 #include <QtGui/QPushButton>
 #include <QtCore/QDebug>
 
-
+/** Constructor por defecto. Asigna \em true a la propiedad \em automática.*/
 GNota::GNota (QWidget* parent) : QLineEdit (parent)
 {
     automatica = true;
@@ -60,7 +60,12 @@ GNota::GNota (QWidget* parent) : QLineEdit (parent)
     connect (this, SIGNAL (textEdited (QString) ), this, SLOT (on_GNota_textChanged (QString) ) );
 }
 
-
+/**
+ * Constructor que inicializa el valor de la nota creada. Asigna \em false a la propiedad
+ * \em automática.
+ *
+ * \todo ¿Realmente funciona esto?
+*/
 GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent)
 {
     automatica = false;
@@ -70,7 +75,7 @@ GNota::GNota (double valor, QWidget* parent) : QLineEdit (parent)
 }
 
 
-
+/** Define que valor tendrá la propiedad \em automática en esta nota. */
 void GNota::setAuto (bool nwauto)
 {
     automatica = nwauto;
@@ -89,8 +94,7 @@ void GNota::setAuto (bool nwauto)
     }
 }
 
-
-
+/** Elimina la nota al hacer clic en el botón de la GNota. Emite la señal \c eliminar(). */
 void GNota::on_btnEliminar_clicked ()
 {
     // Cuando se presiona el botón 'btnEliminar' se activa esta señal
@@ -99,7 +103,7 @@ void GNota::on_btnEliminar_clicked ()
 }
 
 
-
+/** Se activa cuando el texto de la GNota cambia. Emite la señal \c modificada(). */
 void GNota::on_GNota_textChanged (const QString &texto)
 {
     // Cuando el texto de la nota es modificado se activa esta señal

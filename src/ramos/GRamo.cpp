@@ -21,7 +21,12 @@
 
 #include "GRamo.h"
 
-
+/**
+ * Constructor de GRamo, el cual hereda de QListWidgetItem.
+ * \param nombre El nombre del ramo.
+ * \param nombreProfesor Nombre del profesor del ramo.
+ * \param parent Puntero al QListWidget de la ventana principal. \sa GListaRamos
+*/
 GRamo::GRamo (const QString& nombre, const QString& nombreProfesor, QListWidget* parent, int type)
         : QListWidgetItem (nombre, parent, type),
         m_Nombre (nombre),

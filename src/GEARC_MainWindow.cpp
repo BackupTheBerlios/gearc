@@ -145,6 +145,12 @@ void GEARC_MainWindow::agregarRamo()
     listaRamos->agregarRamo (nombreRamo, nombreProfesor);
 }
 
+/**
+ * Slot que actualiza los datos de las cajas de texto en relación a la información
+ * del ramo seleccionado. Se conecta con la señal \em itemActivated(QListWidgetItem*).
+ *
+ * \param item Puntero al item seleccionado en el QListWidget.
+*/
 void GEARC_MainWindow::actualizarDatosRamo (QListWidgetItem *item)
 {
     qDebug() << "El item presionado fue: " << item;

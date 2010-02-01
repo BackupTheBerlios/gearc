@@ -1,4 +1,4 @@
-/// \file GListaRamos.h Declaración de la clase GListaRamos.
+/// \file GListaRamos.cpp Declaración de la clase GListaRamos.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -24,18 +24,32 @@
 
 #include <QtCore/QDebug>
 
-
+/**
+ * Constructor por defecto.
+ * \param parent Es la dirección de memoria del QListWidget de la ventana principal.
+*/
 GListaRamos::GListaRamos (QListWidget* parent) : m_parent (parent)
 {
 
 }
 
-
+/**
+ * Destructor. Utiliza qDeleteAll() para destruir el contenido del contenedor
+ * listaRamos con todos sus GRamo.
+*/
 GListaRamos::~GListaRamos()
 {
     qDeleteAll (listaRamos);
 }
 
+/**
+ * Crea y agrega un nuevo ramo en base al nombre del ramo y al nombre del profesor.
+ * el nombre es agregado a listaRamos y se añade una entrda a la QListWidget de la
+ * ventana principal.
+ * 
+ * \param nombre Nombre del ramo.
+ * \param nombreProfesor Nombre del profesor.
+*/
 void GListaRamos::agregarRamo (QString nombre, QString nombreProfesor)
 {
     Q_ASSERT (m_parent != NULL);
@@ -46,16 +60,28 @@ void GListaRamos::agregarRamo (QString nombre, QString nombreProfesor)
     qDebug() << "Size (listaRamos): " << listaRamos.size();
 }
 
+/**
+ * Retorna la dirección del QListWidget que se determinó como \em padre
+ * en el constructor.
+*/
 QListWidget* GListaRamos::parent() const
 {
     return m_parent;
 }
 
+/**
+ * Retorna el nombre del ramo referenciado por el GRamo \em ramo.
+ * \param ramo Es un puntero al ramo del cual se desea conocer el nombre.
+*/
 QString GListaRamos::nombreRamo (GRamo* ramo) const
 {
     return listaRamos[listaRamos.indexOf (ramo) ]->nombre();
 }
 
+/**
+ * Retorna el nombre del profesor del ramo referenciado por el GRamo \em ramo.
+ * \param ramo Es un puntero al ramo del cual se desea conocer el nombre del profesor.
+*/
 QString GListaRamos::nombreProfesorRamo (GRamo* ramo) const
 {
     return listaRamos[listaRamos.indexOf (ramo) ]->nombreProfesor();
