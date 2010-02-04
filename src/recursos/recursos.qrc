@@ -1,6 +1,13 @@
 <RCC>
-    <qresource prefix="/" >
-        <file>gearc.png</file>
-        <file>application-exit.png</file>
-    </qresource>
+  <qresource prefix="/" >
+    <file alias="GEARC" >gearc.png</file>
+    <file alias="Cerrar" >application-exit.png</file>
+    <file alias="Error" >dialog-error.png</file>
+    <file alias="Warning" >dialog-warning.png</file>
+    <file alias="Abrir" >document-open.png</file>
+    <file alias="GuardarComo" >document-save-as.png</file>
+    <file alias="Guardar" >document-save.png</file>
+    <file alias="Agregar" >list-add.png</file>
+    <file alias="Preferencias" >preferences-other.png</file>
+  </qresource>
 </RCC>
