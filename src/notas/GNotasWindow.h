@@ -34,7 +34,7 @@
 /**
  * \class GNotasWindow
  * \brief El widget que maneja las calificaciones en la ventana principal.
- * 
+ *
  * Este widget se "empotra" en la ventan principal. Posee un espacio de visualización
  * para las GNota y los botones necesarios. Se implementa de esta forma para permitir
  * su uso como una ventana separada de la ventana principal de GEARC, de ser necesario.

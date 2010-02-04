@@ -46,11 +46,11 @@ GListaRamos::~GListaRamos()
  * Crea y agrega un nuevo ramo en base al nombre del ramo y al nombre del profesor.
  * el nombre es agregado a listaRamos y se añade una entrda a la QListWidget de la
  * ventana principal.
- * 
+ *
  * \param nombre Nombre del ramo.
  * \param nombreProfesor Nombre del profesor.
 */
-void GListaRamos::agregarRamo (QString nombre, QString nombreProfesor)
+void GListaRamos::agregarRamo (const QString &nombre, const QString &nombreProfesor)
 {
     Q_ASSERT (m_parent != NULL);
     

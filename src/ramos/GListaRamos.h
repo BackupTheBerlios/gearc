@@ -32,7 +32,7 @@ typedef QList<GRamo*> ListaGRamo;
 /**
  * \class GListaRamos
  * \brief Manipula los ramos que se almacenan en memoria.
- * 
+ *
  * Mantiene en memoria un QList de punteros a GRamo. Permite agregar y eliminar
  * los ramos. Debido a que los GRamo son también un tipo de QListWidgetItem, se necesita
  * conocer cual es el QListWidget que mostrará los ramos. Por tanto esta clase almacena
@@ -46,7 +46,7 @@ public:
     GListaRamos (QListWidget *parent = 0);
     ~GListaRamos ();
     
-    void agregarRamo (QString nombre, QString nombreProfesor);
+    void agregarRamo (const QString &nombre, const QString &nombreProfesor);
     
     inline QListWidget *parent() const;
     
