@@ -66,7 +66,7 @@ private slots:
     
 private:
 
-    GestorNota *gestorNotas; /**< Ventana que manipula las notas, empotrada en GEARC_MainWindow.*/
+    GNotasWindow *gestorNotas; /**< Ventana que manipula las notas, empotrada en GEARC_MainWindow.*/
     GListaRamos *listaRamos; /**< Mantiene en memoria la lista de ramos.*/
 };
 

@@ -1,4 +1,4 @@
-/// \file GNotasWindow.cpp Definición de la clase GestorNota para manejar notas.
+/// \file GNotasWindow.cpp Definición de la clase GNotasWindow para manejar notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -33,7 +33,7 @@
  * Constructor por defecto. \em parent puede ser cualquier widget que se defina
  * como padre de este widget; en general el padre será el GEARC_MainWindow.
 */
-GestorNota::GestorNota (QWidget* parent) : QWidget (parent)
+GNotasWindow::GNotasWindow (QWidget* parent) : QWidget (parent)
 {
     setupUi (this);
     connect (btnAgregarNota, SIGNAL (clicked () ), this, SLOT (agregarNota () ) );
@@ -41,7 +41,7 @@ GestorNota::GestorNota (QWidget* parent) : QWidget (parent)
 }
 
 /** Destruye el widget */
-GestorNota::~GestorNota()
+GNotasWindow::~GNotasWindow()
 {
     qDebug() << "Destruyendo Gestor de notas " << this;
 }
@@ -50,7 +50,7 @@ GestorNota::~GestorNota()
  * Agrega una nueva nota a la lista de notas y se muestra en la caja de notas.
  * Conecta todas las señales necesarias.
 */
-void GestorNota::agregarNota ()
+void GNotasWindow::agregarNota ()
 {
     qDebug () << "\nAgregando nota.";
     
@@ -82,7 +82,7 @@ void GestorNota::agregarNota ()
  * Calcula el promedio o media aritmética de las notas existentes.
  * \return EL valor calculado.
 */
-float GestorNota::calcularPromedio ()
+float GNotasWindow::calcularPromedio ()
 {
     qDebug () << "Promediando";
     
@@ -107,7 +107,7 @@ float GestorNota::calcularPromedio ()
  * Utilizando calcularPromedio() obtiene el promedio de las notas, luego convierte ese número
  * en una cadena QString y lo asigna a la caja de texto lnePromedio.
 */
-void GestorNota::promediar ()
+void GNotasWindow::promediar ()
 {
     float Prom = calcularPromedio ();
     
@@ -122,7 +122,7 @@ void GestorNota::promediar ()
  * \bug Falla cuando se presiona el botón <b> Autocalcular Notas</b> y
  * no hay notas. Desactivar el botón en esos casos es una solución.
 */
-void GestorNota::calcularNotas()
+void GNotasWindow::calcularNotas()
 {
     float Valor;
     QString cadena;
@@ -168,7 +168,7 @@ void GestorNota::calcularNotas()
  * luego calcula nuevamente el promedio.
  * \todo Explicar con más detalle el sistema de notas automáticas y manuales.
 */
-void GestorNota::actualizarNota (const QString& texto, GNota* nota)
+void GNotasWindow::actualizarNota (const QString& texto, GNota* nota)
 {
     //qDebug () << "Nota " << nota << " modificada: " << texto;
     if (texto == "")
@@ -183,7 +183,7 @@ void GestorNota::actualizarNota (const QString& texto, GNota* nota)
  * Quita la nota especificada en el puntero \em nota de la caja de notas.
  * Luego la quita de la lista de notas y es eliminada. Recalcula el promedio.
 */
-void GestorNota::eliminarNota (GNota* nota)
+void GNotasWindow::eliminarNota (GNota* nota)
 {
     int Indice = notas.indexOf (nota);
     

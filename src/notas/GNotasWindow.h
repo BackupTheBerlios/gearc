@@ -1,4 +1,4 @@
-/// \file GNotasWindow.h Declaración de la clase GestorNota para manejar notas.
+/// \file GNotasWindow.h Declaración de la clase GNotasWindow para manejar notas.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -32,7 +32,7 @@
 #include <QtCore/QList>
 
 /**
- * \class GestorNota
+ * \class GNotasWindow
  * \brief El widget que maneja las calificaciones en la ventana principal.
  * 
  * Este widget se "empotra" en la ventan principal. Posee un espacio de visualización
@@ -40,13 +40,13 @@
  * su uso como una ventana separada de la ventana principal de GEARC, de ser necesario.
 */
 
-class GestorNota : public QWidget, private Ui::wdgtNotas
+class GNotasWindow : public QWidget, private Ui::wdgtNotas
 {
     Q_OBJECT
     
 public:
-    GestorNota (QWidget *parent = 0);
-    ~GestorNota ();
+    GNotasWindow (QWidget *parent = 0);
+    ~GNotasWindow ();
     
 public slots:
     void agregarNota ();

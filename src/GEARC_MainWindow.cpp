@@ -50,7 +50,7 @@ GEARC_MainWindow::GEARC_MainWindow (QWidget* parent) : QMainWindow (parent), Ui:
     setupUi (this);
     
     qDebug() << "Creando Gestor de Notas.";
-    gestorNotas = new GestorNota (this);
+    gestorNotas = new GNotasWindow (this);
     
     layoutNotas->addWidget (gestorNotas);
     
