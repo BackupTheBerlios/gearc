@@ -52,7 +52,7 @@ GListaRamos::~GListaRamos()
 */
 void GListaRamos::agregarRamo (const QString &nombre, const QString &nombreProfesor)
 {
-    Q_ASSERT (m_parent != NULL);
+    Q_ASSERT_X (m_parent != NULL, "agregarRamo", "No hay padre QListWidget");
     
     listaRamos.append (new GRamo (nombre, nombreProfesor, m_parent) );
     

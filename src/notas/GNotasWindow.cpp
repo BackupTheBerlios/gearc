@@ -97,7 +97,7 @@ float GNotasWindow::calcularPromedio ()
     qDebug () << "Sum: " << Sum;
     qDebug () << "Size (notas) : " << notas.size();
     
-    Q_ASSERT (notas.size () > 0);
+    Q_ASSERT_X (notas.size () > 0, "calcularPromedio", "No hay notas para promediar");
     
     Prom = Sum / float (notas.size () );
     return Prom;
