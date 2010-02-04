@@ -38,7 +38,7 @@ class GRamo : public QListWidgetItem
 public:
     
     GRamo (const QString &nombre, const QString &nombreProfesor,
-           QListWidget *parent = 0, int type = Type);
+           QListWidget *parent = 0);
            
     ~GRamo();
     

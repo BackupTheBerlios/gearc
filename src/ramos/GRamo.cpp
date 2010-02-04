@@ -27,8 +27,8 @@
  * \param nombreProfesor Nombre del profesor del ramo.
  * \param parent Puntero al QListWidget de la ventana principal. \sa GListaRamos
 */
-GRamo::GRamo (const QString& nombre, const QString& nombreProfesor, QListWidget* parent, int type)
-        : QListWidgetItem (nombre, parent, type),
+GRamo::GRamo (const QString& nombre, const QString& nombreProfesor, QListWidget* parent)
+        : QListWidgetItem (nombre, parent),
         m_Nombre (nombre),
         m_NombreProfesor (nombreProfesor)
 {
