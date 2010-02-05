@@ -1,0 +1,13 @@
+/*
+ Documentación Doxygen
+*/
+
+/// \dir src Contiene todo el código fuente y archivos de recursos.
+
+/// \dir archivos Contiene el código relacionado con la lectura y escritura de archivos.
+
+/// \dir notas Contiene el código relacionado con las notas y su forma de gestionarlas.
+
+/// \dir ramos Contiene el código relacionado con los ramos y su forma de gestionarlos.
+
+/// \dir recursos Posee gráficos y archivos .desktop para usarse con el programa.
