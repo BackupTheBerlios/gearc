@@ -21,6 +21,8 @@
 
 #include "GRamo.h"
 
+#include <QtCore/QDebug>
+
 /**
  * Constructor de GRamo, el cual hereda de QListWidgetItem.
  * \param nombre El nombre del ramo.
@@ -39,6 +41,6 @@ GRamo::GRamo (const QString& nombre, const QString& nombreProfesor, QListWidget*
 /** Destructor de GRamo. */
 GRamo::~GRamo()
 {
-    // Nada aun :)
+    qDebug() << "Destruyendo GRamo: " << this;
 }
 

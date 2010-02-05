@@ -126,6 +126,8 @@
     <property name="title">
      <string notr="true">&amp;Gearc</string>
     </property>
+    <addaction name="actAbrir"/>
+    <addaction name="actGuardar"/>
     <addaction name="separator"/>
     <addaction name="actSalir"/>
    </widget>
@@ -206,6 +208,36 @@
    </property>
    <property name="toolTip">
     <string>Agrega un nuevo ramo.</string>
+   </property>
+  </action>
+  <action name="actAbrir">
+   <property name="icon">
+    <iconset resource="recursos/recursos.qrc">
+     <normaloff>:/Abrir</normaloff>:/Abrir</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Abrir...</string>
+   </property>
+   <property name="statusTip">
+    <string>Abre un archivo para editarlo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actGuardar">
+   <property name="icon">
+    <iconset resource="recursos/recursos.qrc">
+     <normaloff>:/Guardar</normaloff>:/Guardar</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Guardar</string>
+   </property>
+   <property name="toolTip">
+    <string>Guarda el trabajo actual</string>
+   </property>
+   <property name="shortcut">
+    <string notr="true">Ctrl+S</string>
    </property>
   </action>
  </widget>

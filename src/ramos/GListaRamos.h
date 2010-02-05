@@ -30,6 +30,23 @@
 typedef QList<GRamo*> ListaGRamo;
 
 /**
+ * \struct datosRamo
+ * \brief Estructura que guarda los datos de un ramo.
+ *
+ * Esta estructura posee los datos necesarios para crear un nuevo ramo.
+ * Se creó con el propósito de realizar una llamada más simple a la función \em agregarRamo()
+ * pasando como parámetro únicamente esta estructura en vez de pasar todos los datos
+ * uno por uno. Para crear un nuevo ramo, cree una instancia de esta estructura, llene
+ * los datos necesarios y pásela como parámetro de la función agregarRamo() de la clase
+ * GListaRamos.
+*/
+struct datosRamo
+{
+    QString nombre;
+    QString nombreProfesor;
+};
+
+/**
  * \class GListaRamos
  * \brief Manipula los ramos que se almacenan en memoria.
  *
@@ -43,17 +60,25 @@ typedef QList<GRamo*> ListaGRamo;
 class GListaRamos
 {
 public:
+
     GListaRamos (QListWidget *parent = 0);
     ~GListaRamos ();
     
-    void agregarRamo (const QString &nombre, const QString &nombreProfesor);
+    void agregarRamo (const datosRamo &nuevoRamo);
     
     inline QListWidget *parent() const;
     
     QString nombreRamo (GRamo *ramo) const;
     QString nombreProfesorRamo (GRamo *ramo) const;
     
+    void cargar (const ListaGRamo &lista);
+    
+public slots:
+
+    void limpiar ();
+    
 private:
+
     ListaGRamo listaRamos; /**< La lista de GRamo en memoria por medio de una QList. */
     QListWidget *m_parent; /**< Puntero al QListWidget en la ventana principal. */
 };

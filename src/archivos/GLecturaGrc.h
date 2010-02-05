@@ -1,4 +1,4 @@
-/// \file GEARC_MainWindow.h Declaración de la interfaz gráfica principal.
+/// \file GLecturaGrc.h Declaración de la clase GLecturaGrc para la lectura de archivos GEARC.
 
 /******************************************************************************
 *           GEARC. Gestor y administrador de ramos y calificaciones.          *
@@ -19,59 +19,37 @@
 *      <http://www.gnu.org/licenses/>.                                        *
 *******************************************************************************/
 
+#ifndef GLECTURAGRC_H
+#define GLECTURAGRC_H
 
-#ifndef GMAINWINDOW_H
-#define GMAINWINDOW_H
+#include <QtXml/QXmlStreamReader>
 
-#include "Gi18n.h"
-
-#include "ui_GEARC_MainWindow.h"
-#include "notas/GNotasWindow.h"
-
-#include <QtGui/QMainWindow>
-
-// Declaraciones aplazadas (Forward declarations)
+// Declaraciones aplazadas
 class GListaRamos;
 
 
 /**
- * \class GEARC_MainWindow
- * \brief Ventana principal de GEARC.
+ * \class GLecturaGrc
+ * \brief Permite cargar los datos desde un archivo.
  *
- * GEARC_MainWindow posee los métodos y propiedades que determinan la ventana
- * principal de GEARC. Es heredada de \c QMainWindow y de \c Ui::GEARC_MainWindow, la
- * cual es generada a partir del archivo \c GMainWindow.ui.
+ * Usando las funciones y métodos que provee el módulo QtXml, en especial
+ * la clase \em QXmlStreamReader, cargamos los datos guardados previamente
+ * en un archivo XML con extensión \c .grc.
  *
- * \sa main.cpp
+ * Esta clase provee \todo terminar documentación.
 */
-
-class GEARC_MainWindow : public QMainWindow, private Ui::GEARC_MainWindow
+class GLecturaGrc : public QXmlStreamReader
 {
-    Q_OBJECT
-    
 public:
 
-    GEARC_MainWindow (QWidget *parent = 0);
-    ~GEARC_MainWindow ();
+    GLecturaGrc (QIODevice *archivo, GListaRamos *listaRamos);
     
+    bool leer ();
     
-public slots:
-
-    void showAcercaDe ();
-    void agregarRamo ();
-    void abrirArchivo ();
-    void guardarArchivo ();
-    
-private slots:
-
-    void actualizarDatosRamo (QListWidgetItem *item);
     
 private:
 
-    void conexiones ();
-    
-    GNotasWindow *gestorNotas; /**< Ventana que manipula las notas, empotrada en GEARC_MainWindow.*/
-    GListaRamos *listaRamos; /**< Mantiene en memoria la lista de ramos.*/
+    GListaRamos *m_listaRamos; /**< Puntero a la lista de ramos creada en GEARC_MainWindow. */
 };
 
-#endif // GMAINWINDOW_H
+#endif // GLECTURAGRC_H

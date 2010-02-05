@@ -53,6 +53,7 @@ SET (GEARC_SRC
     main.cpp
     Gi18n.cpp
     GEARC_MainWindow.cpp
+    archivos/GLecturaGrc.cpp
     notas/Gnota.cpp
     notas/GNotasWindow.cpp
     ramos/GRamo.cpp
@@ -113,6 +114,7 @@ ADD_EXECUTABLE (gearc ${GEARC_SRC} ${UI_SRC} ${RCC_SRC})
 TARGET_LINK_LIBRARIES (gearc
 	${QT_QTCORE_LIBRARY}
 	${QT_QTGUI_LIBRARY}
+	${QT_QTXML_LIBRARY}
 )
 
 # BLANCOS DE INSTALACION (make install)
